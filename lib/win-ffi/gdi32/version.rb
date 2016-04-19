@@ -1,0 +1,5 @@
+module WinFFI
+  module Gdi32
+    VERSION = '0.0.1'
+  end
+end
