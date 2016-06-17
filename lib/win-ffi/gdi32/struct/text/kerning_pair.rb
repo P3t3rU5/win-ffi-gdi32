@@ -1,4 +1,4 @@
-require 'win-ffi/user32'
+require 'win-ffi/gdi32'
 
 module WinFFI
   module Gdi32

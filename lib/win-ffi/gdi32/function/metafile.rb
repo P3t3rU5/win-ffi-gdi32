@@ -1,5 +1,8 @@
 require 'win-ffi/gdi32'
 
+require 'win-ffi/gdi32/typedef/hmetafile'
+require 'win-ffi/gdi32/typedef/henhmetafile'
+
 require 'win-ffi/core/struct/rect'
 require 'win-ffi/gdi32/struct/handle_table'
 require 'win-ffi/gdi32/struct/meta_file_pict'
@@ -7,9 +10,6 @@ require 'win-ffi/gdi32/struct/palette_entry'
 
 module WinFFI
   module Gdi32
-
-    typedef :pointer, :hmetafile
-    typedef :pointer, :henhmetafile
 
     #HENHMETAFILE CloseEnhMetaFile( _In_  HDC hdc )
     attach_function 'CloseEnhMetaFile', [:hdc], :henhmetafile

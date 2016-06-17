@@ -24,5 +24,7 @@ module WinFFI
         :EASTEUROPE,  238,
         :OEM,         255
     ]
+
+    define_suffix(:CHARSET, FontCharset)
   end
 end

@@ -1,6 +1,6 @@
-require 'win-ffi/gdi32/struct/display_config/display_config_rational'
-require 'win-ffi/gdi32/struct/display_config/display_config_2d_region'
-require 'win-ffi/gdi32/enum/display_config/display_config_scanline_ordering'
+require 'win-ffi/gdi32/struct/display_config/rational'
+require 'win-ffi/gdi32/struct/display_config/2d_region'
+require 'win-ffi/gdi32/enum/display_config/scanline_ordering'
 
 module WinFFI
   module Gdi32

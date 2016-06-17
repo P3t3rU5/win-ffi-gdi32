@@ -1,5 +1,5 @@
 require 'win-ffi/core/struct/luid'
-require 'win-ffi/gdi32/enum/display_config/display_config_device_info_type'
+require 'win-ffi/gdi32/enum/display_config/device_info_type'
 
 module WinFFI
   module Gdi32

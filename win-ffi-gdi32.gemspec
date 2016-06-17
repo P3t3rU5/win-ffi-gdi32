@@ -13,19 +13,4 @@ Gem::Specification.new do |gem|
   gem.files         = Dir['{lib/**/*.rb,*.md}']
   gem.add_dependency 'win-ffi-core', '~> 1'
   gem.add_development_dependency 'rspec', '~> 3.4'
-  gem.post_install_message = <<-eos
-+----------------------------------------------------------------------------+
-  Thanks for choosing WinFFI.
-
-  ==========================================================================
-  #{WinFFI::Gdi32::VERSION} Changes:
-    - Refactored Directory Structure
-
-  ==========================================================================
-
-  If you find any bugs, please report them on
-    https://github.com/P3t3rU5/win-ffi-gdi32/issues
-
-+----------------------------------------------------------------------------+
-  eos
 end

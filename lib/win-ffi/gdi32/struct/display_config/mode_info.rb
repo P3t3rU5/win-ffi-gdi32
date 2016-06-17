@@ -1,9 +1,9 @@
-require 'win-ffi/gdi32/enum/display_config/display_config_mode_info_type'
+require 'win-ffi/gdi32/enum/display_config/mode_info_type'
 
 require 'win-ffi/core/struct/luid'
-require 'win-ffi/gdi32/struct/display_config/display_config_target_mode'
-require 'win-ffi/gdi32/struct/display_config/display_config_source_mode'
-require 'win-ffi/gdi32/struct/display_config/display_config_desktop_image_info'
+require 'win-ffi/gdi32/struct/display_config/target_mode'
+require 'win-ffi/gdi32/struct/display_config/source_mode'
+require 'win-ffi/gdi32/struct/display_config/desktop_image_info'
 
 module WinFFI
   module Gdi32

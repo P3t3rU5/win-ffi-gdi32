@@ -1,11 +1,11 @@
 require 'win-ffi/core/struct/luid'
 
-require 'win-ffi/gdi32/enum/display_config/display_config_video_output_technology'
-require 'win-ffi/gdi32/enum/display_config/display_config_rotation'
-require 'win-ffi/gdi32/enum/display_config/display_config_scaling'
-require 'win-ffi/gdi32/enum/display_config/display_config_scanline_ordering'
+require 'win-ffi/gdi32/enum/display_config/video_output_technology'
+require 'win-ffi/gdi32/enum/display_config/rotation'
+require 'win-ffi/gdi32/enum/display_config/scaling'
+require 'win-ffi/gdi32/enum/display_config/scanline_ordering'
 
-require 'win-ffi/gdi32/struct/display_config/display_config_rational'
+require 'win-ffi/gdi32/struct/display_config/rational'
 
 module WinFFI
   module Gdi32

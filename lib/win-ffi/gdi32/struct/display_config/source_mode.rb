@@ -1,4 +1,4 @@
-require 'win-ffi/gdi32/enum/display_config/display_config_pixel_format'
+require 'win-ffi/gdi32/enum/display_config/pixel_format'
 
 require 'win-ffi/core/struct/point'
 

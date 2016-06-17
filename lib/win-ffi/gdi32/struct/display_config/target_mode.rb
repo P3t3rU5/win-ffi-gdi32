@@ -1,4 +1,4 @@
-require 'win-ffi/gdi32/struct/display_config/display_config_video_signal_info'
+require 'win-ffi/gdi32/struct/display_config/video_signal_info'
 
 module WinFFI
   module Gdi32

@@ -1,7 +1,7 @@
-require 'win-ffi/gdi32/enum/display_config/display_config_path'
+require 'win-ffi/gdi32/enum/display_config/path'
 
-require 'win-ffi/gdi32/struct/display_config/display_config_path_source_info'
-require 'win-ffi/gdi32/struct/display_config/display_config_path_target_info'
+require 'win-ffi/gdi32/struct/display_config/path_source_info'
+require 'win-ffi/gdi32/struct/display_config/path_target_info'
 
 module WinFFI
   module Gdi32
