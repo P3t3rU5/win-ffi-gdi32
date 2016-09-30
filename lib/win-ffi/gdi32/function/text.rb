@@ -244,7 +244,7 @@ module WinFFI
     # DWORD GetFontUnicodeRanges(
     #   _In_   HDC hdc,
     #   _Out_  LPGLYPHSET lpgs )
-    attach_function 'GetFontUnicodeRanges', [:hdc, GLYPHSET], :dword
+    attach_function 'GetFontUnicodeRanges', [:hdc, GLYPHSET.ptr(:out)], :dword
 
     # https://msdn.microsoft.com/en-us/library/dd144890(v=vs.85).aspx
     # DWORD GetGlyphIndices(

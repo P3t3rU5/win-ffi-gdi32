@@ -3,6 +3,7 @@ require 'win-ffi/gdi32'
 module WinFFI
   module Gdi32
     # Definitions used by SetDisplayConfig.
+    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff569533(v=vs.85).aspx
     SetDisplayConfigFlag = enum :set_display_config_flag, [
         :TOPOLOGY_INTERNAL,            0x00000001,
         :TOPOLOGY_CLONE,               0x00000002,
@@ -21,5 +22,7 @@ module WinFFI
         :ALLOW_PATH_ORDER_CHANGES,     0x00002000,
         :VIRTUAL_MODE_AWARE,           0x00008000
     ]
+
+    define_prefix(:SDC, SetDisplayConfigFlag)
   end
 end

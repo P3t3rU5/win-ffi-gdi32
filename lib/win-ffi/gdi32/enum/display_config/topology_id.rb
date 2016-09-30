@@ -9,5 +9,7 @@ module WinFFI
         :EXTERNAL,     0x00000008,
         :FORCE_UINT32, 0xFFFFFFFF
     ]
+
+    define_prefix(:DISPLAYCONFIG_TOPOLOGY_ID, DisplayConfigTopologyId)
   end
 end

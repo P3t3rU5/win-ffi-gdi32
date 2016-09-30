@@ -1,6 +1,7 @@
 require 'rspec'
 require_relative '../test/test_helper'
 require 'win-ffi/gdi32'
+require 'win-ffi/msimg32'
 
 RSpec.describe 'Definitions' do
 

@@ -7,7 +7,15 @@ module WinFFI
         :ACTIVE,               0x00000001,
         :PREFERRED_UNSCALED,   0x00000004,
         :SUPPORT_VIRTUAL_MODE, 0x00000008,
-        :VALID_FLAGS,          0x0000000D
+        :VALID_FLAGS,          0x0000000D,
+
+        :MODE_IDX_INVALID,       0XFFFFFFFF,
+        :TARGET_MODE_IDX_INVALID,    0XFFFF,
+        :DESKTOP_IMAGE_IDX_INVALID,  0XFFFF,
+        :SOURCE_MODE_IDX_INVALID,    0XFFFF,
+        :CLONE_GROUP_INVALID,        0XFFFF,
     ]
+
+    define_prefix(:DISPLAYCONFIG_PATH, DisplayConfigPath)
   end
 end

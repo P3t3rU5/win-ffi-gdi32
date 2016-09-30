@@ -4,11 +4,11 @@ require 'win-ffi/core/struct/point'
 
 module WinFFI
   module Gdi32
-    class DISPLAYCONFIG_SOURCE_MODE < FFIStruct
-      layout :width,       :uint32,
-             :height,      :uint32,
-             :pixelFormat, DisplayConfigPixelFormat,
-             :position,    POINT
+    class DISPLAYCONFIG_SOURCE_MODE < FFIAdditions::Struct
+      layout width:                        :uint32,
+             height:                       :uint32,
+             pixelFormat: DisplayConfigPixelFormat,
+             position:                       POINT
     end
   end
 end

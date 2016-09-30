@@ -4,14 +4,15 @@ require 'win-ffi/core/struct/rect'
 
 module WinFFI
   module Gdi32
-    class POLYTEXT < FFIStruct
-      layout :x,       :int,
-             :y,       :int,
-             :n,       :uint,
-             :lpstr,   :string,
-             :uiFlags, ExtTextOutFlag,
-             :rcl,     RECT,
-             :pdx,     :pointer
+    # https://msdn.microsoft.com/en-us/library/dd162820(v=vs.85).aspx
+    class POLYTEXT < FFIAdditions::Struct
+      layout x:                 :int,
+             y:                 :int,
+             n:                :uint,
+             lpstr:          :string,
+             uiFlags: ExtTextOutFlag,
+             rcl:               RECT,
+             pdx:           :pointer
     end
   end
 end

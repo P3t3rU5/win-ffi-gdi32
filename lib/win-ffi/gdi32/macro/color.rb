@@ -1,5 +1,6 @@
 module WinFFI
   module Gdi32
+    #define RGB(r,g,b) ((COLORREF)(((BYTE)(r)|((WORD)((BYTE)(g))<<8))|(((DWORD)(BYTE)(b))<<16)))
     def self.RGB(r, g, b)
       r |(g << 8)| (b << 16) # COLORREF
     end

@@ -8,7 +8,9 @@ module WinFFI
         :'24BPP',      3,
         :'32BPP',      4,
         :NONGDI,       5,
-        :FORCE_UINT32, 0xffffffff
+        :FORCE_UINT32, 0XFFFFFFFF
     ]
+
+    define_prefix(:DISPLAYCONFIG_PIXELFORMAT, DisplayConfigPixelFormat)
   end
 end

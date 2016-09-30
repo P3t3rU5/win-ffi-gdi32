@@ -13,17 +13,17 @@ require 'win-ffi/gdi32/enum/text/pan_x_height'
 module WinFFI
   module Gdi32
     # https://msdn.microsoft.com/en-us/library/dd162774(v=vs.85).aspx
-    class PANOSE < FFIStruct
-      layout :FamilyType,      PanFamily,
-             :SerifStyle,      PanSerifStyle,
-             :Weight,          PanWeight,
-             :Proportion,      PanProportion,
-             :Contrast,        PanContrast,
-             :StrokeVariation, PanStrokeVariation,
-             :ArmStyle,        PanArmStyle,
-             :Letterform,      PanLetterForm,
-             :Midline,         PanMidline,
-             :XHeight,         PanXHeight
+    class PANOSE < FFIAdditions::Struct
+      layout FamilyType:               PanFamily,
+             SerifStyle:           PanSerifStyle,
+             Weight:                   PanWeight,
+             Proportion:           PanProportion,
+             Contrast:               PanContrast,
+             StrokeVariation: PanStrokeVariation,
+             ArmStyle:               PanArmStyle,
+             Letterform:           PanLetterForm,
+             Midline:                 PanMidline,
+             XHeight:                 PanXHeight
     end
   end
 end

@@ -1,15 +1,13 @@
 require 'win-ffi/gdi32/struct/text/log_font'
 
-LF_FULLFACESIZE = 64
-LF_FACESIZE = 32
-
 module WinFFI
   module Gdi32
+    # Structure passed to FONTENUMPROC
     # https://msdn.microsoft.com/en-us/library/dd162626(v=vs.85).aspx
-    class ENUMLOGFONT < FFIStruct
-      layout :elfLogFont,  LOGFONT,
-             :elfFullName, WideInlineString.new(64),
-             :elfStyle,    WideInlineString.new(32)
+    class ENUMLOGFONT < FFIAdditions::Struct
+      layout elfLogFont:                                LOGFONT,
+             elfFullName: WideInlineString.new(LF_FULLFACESIZE),
+             elfStyle:        WideInlineString.new(LF_FACESIZE)
 
       def family
         elfFullName
