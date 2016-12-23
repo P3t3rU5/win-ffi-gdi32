@@ -40,7 +40,7 @@ module WinFFI
     #   _Out_ LPPOINT lpPoints,
     #   _Out_ LPBYTE  lpTypes,
     #   _In_  int     nSize)
-    attach_function 'GetPath', [:hdc, POINT.ptr(:out), :pointer, :int], :int
+    attach_function 'GetPath', [:hdc, :pointer, :pointer, :int], :int
 
     # https://msdn.microsoft.com/en-us/library/dd162780(v=vs.85).aspx
     # HRGN PathToRegion(_In_ HDC hdc)

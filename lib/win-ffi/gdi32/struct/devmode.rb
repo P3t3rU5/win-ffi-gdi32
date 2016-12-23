@@ -1,5 +1,4 @@
-require 'win-ffi/gdi32'
-
+require 'win-ffi/gdi32/constant'
 require 'win-ffi/gdi32/struct/metafile/pointl'
 
 module WinFFI

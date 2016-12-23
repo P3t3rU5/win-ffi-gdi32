@@ -10,5 +10,7 @@ module WinFFI
         :OUTOFDISK,   (-4),
         :OUTOFMEMORY, (-5)
     ]
+
+    define_prefix(:SP, SpoolerErrorCode)
   end
 end

@@ -50,6 +50,7 @@ module WinFFI
     #   _In_ LPARAM lpData)
     LineDDAProc = callback :LineDDAProc, [:int, :int, :lparam], :void
 
+    # https://msdn.microsoft.com/en-us/library/dd145025(v=vs.85).aspx
     # BOOL LineDDA(
     #   _In_ int         nXStart,
     #   _In_ int         nYStart,

@@ -1,6 +1,7 @@
 require 'win-ffi/gdi32/enum/pen/pen_style'
 
 require 'win-ffi/gdi32/struct/pen/log_pen'
+require 'win-ffi/gdi32/struct/brush/log_brush'
 
 module WinFFI
   module Gdi32

@@ -105,6 +105,5 @@ module WinFFI
     # https://msdn.microsoft.com/en-us/library/windows/hardware/ff539423(v=vs.85).aspx
     # PATHOBJ* CLIPOBJ_ppoGetPath(_In_ CLIPOBJ *pco)
     attach_function 'CLIPOBJ_ppoGetPath', [CLIPOBJ.ptr(:in)], :pointer
-
   end
 end

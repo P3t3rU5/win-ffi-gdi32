@@ -2,6 +2,7 @@ require 'win-ffi/gdi32'
 
 require 'win-ffi/core/struct/point'
 require 'win-ffi/gdi32/struct/devmode'
+require 'win-ffi/gdi32/enum/device_context/set_layout_flag'
 
 require 'win-ffi/gdi32/typedef/hgdiobj'
 
@@ -144,6 +145,6 @@ module WinFFI
     # DWORD SetLayout(
     #   _In_  HDC hdc,
     #   _In_  DWORD dwLayout )
-    attach_function 'SetLayout', [:hdc, :dword], :dword
+    attach_function 'SetLayout', [:hdc, SetLayoutFlag], :dword
   end
 end

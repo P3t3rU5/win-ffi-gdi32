@@ -1,3 +1,5 @@
+require 'win-ffi/core/struct/guid'
+
 require 'win-ffi/gdi32/enum/device_context/video_parameters/video_parameters_command'
 require 'win-ffi/gdi32/enum/device_context/video_parameters/video_parameters_flag'
 require 'win-ffi/gdi32/enum/device_context/video_parameters/video_parameters_mode'
@@ -8,7 +10,7 @@ require 'win-ffi/gdi32/enum/device_context/video_parameters/video_parameters_cp_
 module WinFFI
   module Gdi32
     class VIDOEPARAMETERS < FFIAdditions::Struct
-      layout guid:                             :guid,
+      layout guid:                              GUID,
              dwOffset:                        :ulong,
              dwCommand:       VideoParametersCommand,
              dwFlags:            VideoParametersFlag,

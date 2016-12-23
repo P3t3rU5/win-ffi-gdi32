@@ -12,5 +12,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = %w'lib'
   gem.files         = Dir['{lib/**/*.rb,*.md}']
   gem.add_dependency 'win-ffi-core', '~> 1'
-  gem.add_development_dependency 'rspec', '~> 3.4'
+  gem.add_development_dependency 'rspec', '~> 3.5'
 end

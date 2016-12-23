@@ -10,13 +10,13 @@ require 'win-ffi/gdi32/struct/display_config/rational'
 module WinFFI
   module Gdi32
     class DPTISTRUCT < FFIAdditions::Struct
-      layout :desktopModeInfoIdx, :uint32,
-             :targetModeInfoIdx,  :uint32
+      layout desktopModeInfoIdx: :uint32,
+             targetModeInfoIdx:  :uint32
     end
 
     class DPTIUNION < FFIAdditions::Union
-      layout :modeInfoIdx, :uint32,
-             :s,        DPTISTRUCT
+      layout modeInfoIdx: :uint32,
+             s:        DPTISTRUCT
     end
 
     class DISPLAYCONFIG_PATH_TARGET_INFO < FFIAdditions::Struct

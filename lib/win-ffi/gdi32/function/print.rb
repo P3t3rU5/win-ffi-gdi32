@@ -1,16 +1,4 @@
-require 'win-ffi/gdi32/enum/hook_flag'
-
-require 'win-ffi/gdi32/typedef/hsemaphore'
-
 require 'win-ffi/gdi32/struct/print/doc_info'
-
-require 'win-ffi/gdi32/struct/metafile/pointl'
-
-require 'win-ffi/gdi32/struct/print/surf_obj'
-require 'win-ffi/gdi32/struct/bitmap/blend_obj'
-require 'win-ffi/gdi32/struct/clipping/clip_obj'
-require 'win-ffi/gdi32/struct/x_late_obj'
-require 'win-ffi/gdi32/struct/brush/brush_obj'
 
 module WinFFI
   module Gdi32
@@ -74,58 +62,5 @@ module WinFFI
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd145116(v=vs.85).aspx
     # int StartPage(_In_ HDC hDC)
     attach_function 'StartPage', [:hdc], :int
-
-    # SURFOBJ callbacks
-    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff564174%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
-    # VOID EngAcquireSemaphore(_In_ HSEMAPHORE hsem)
-    attach_function 'EngAcquireSemaphore', [:hsemaphore], :void
-
-    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff564182%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
-    # BOOL EngAlphaBlend(
-    #   SURFOBJ  *psoDest,
-    #   SURFOBJ  *psoSrc,
-    #   CLIPOBJ  *pco,
-    #   XLATEOBJ *pxlo,
-    #   RECTL    *prclDest,
-    #   RECTL    *prclSrc,
-    #   BLENDOBJ *pBlendObj)
-    attach_function 'EngAlphaBlend', [SURFOBJ.ptr, SURFOBJ.ptr, CLIPOBJ.ptr, XLATEOBJ.ptr, RECTL.ptr, RECTL.ptr, BLENDOBJ.ptr], :bool
-
-    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff564183(v=vs.85).aspx
-    # BOOL EngAssociateSurface(
-    #   HSURF hsurf,
-    #   HDEV  hdev,
-    #   FLONG flHooks)
-    attach_function 'EngAssociateSurface', [:hsurf, :hdev, HookFlag], :bool
-
-    typedef :ulong, :rop4
-
-    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff564185(v=vs.85).aspx
-    # BOOL EngBitBlt(
-    #   SURFOBJ  *psoTrg,
-    #   SURFOBJ  *psoSrc,
-    #   SURFOBJ  *psoMask,
-    #   CLIPOBJ  *pco,
-    #   XLATEOBJ *pxlo,
-    #   RECTL    *prclTrg,
-    #   POINTL   *pptlSrc,
-    #   POINTL   *pptlMask,
-    #   BRUSHOBJ *pbo,
-    #   POINTL   *pptlBrush,
-    #   _In_ ROP4     rop4)
-    attach_function 'EngBitBlt',
-                    [SURFOBJ.ptr, SURFOBJ.ptr, SURFOBJ.ptr, CLIPOBJ.ptr, XLATEOBJ.ptr, RECTL.ptr, POINTL.ptr,
-                     POINTL.ptr, BRUSHOBJ.ptr, POINTL.ptr, :rop4], :bool
-
-    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff564189(v=vs.85).aspx
-    # BOOL EngCheckAbort(SURFOBJ *pso)
-    attach_function 'EngCheckAbort', [SURFOBJ.ptr], :bool
-
-    # FD_GLYPHSET* EngComputeGlyphSet(
-    #   _In_ INT nCodePage,
-    #   _In_ INT nFirstChar,
-    #   _In_ INT cChars)
-    attach_function 'EngComputeGlyphSet', [:int, :int, :int], :pointer
-
   end
 end

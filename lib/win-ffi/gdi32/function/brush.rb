@@ -6,8 +6,6 @@ require 'win-ffi/gdi32/enum/bitmap/bit_blt_flag'
 
 require 'win-ffi/gdi32/struct/brush/log_brush'
 
-require 'win-ffi/gdi32/struct/brush/brush_obj'
-
 require 'win-ffi/core/struct/point'
 
 module WinFFI
@@ -66,21 +64,5 @@ module WinFFI
     #   _Out_  LPPOINT lppt )
     attach_function 'SetBrushOrgEx', [:hdc, :int, :int, POINT.ptr(:out)], :bool
 
-    # BRUSHOBJ callbacks
-    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff538262%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
-    # HANDLE BRUSHOBJ_hGetColorTransform(BRUSHOBJ *pbo)
-    attach_function 'BRUSHOBJ_hGetColorTransform', [BRUSHOBJ.ptr], :handle
-
-    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff538263%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
-    # PVOID BRUSHOBJ_pvAllocRbrush(BRUSHOBJ *pbo, ULONG    cj)
-    attach_function 'BRUSHOBJ_pvAllocRbrush', [BRUSHOBJ.ptr, :ulong], :pointer
-
-    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff538264(v=vs.85).aspx
-    # PVOID BRUSHOBJ_pvGetRbrush(BRUSHOBJ *pbo)
-    attach_function 'BRUSHOBJ_pvGetRbrush', [BRUSHOBJ.ptr], :ulong
-
-    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff538265(v=vs.85).aspx
-    # ULONG BRUSHOBJ_ulGetBrushColor(BRUSHOBJ *pbo)
-    attach_function 'BRUSHOBJ_ulGetBrushColor', [BRUSHOBJ.ptr], :ulong
   end
 end

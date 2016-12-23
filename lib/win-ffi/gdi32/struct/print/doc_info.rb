@@ -14,6 +14,10 @@ module WinFFI
         super
         self[:cbSize] = self.size
       end
+
+      def lpszDocName=(lpszDocName)
+        self[:lpszDocName] = FFI::MemoryPointer.from_string(lpszDocName)
+      end
     end
   end
 end

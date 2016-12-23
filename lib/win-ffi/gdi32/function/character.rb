@@ -20,6 +20,5 @@ module WinFFI
     #   _Out_   LPCHARSETINFO lpCs,
     #   _In_    DWORD         dwFlags)
     attach_function 'TranslateCharsetInfo', [:pointer, CHARSETINFO.ptr(:out), TranslateCharsetInfoFlag], :bool
-
   end
 end

@@ -15,7 +15,10 @@ require 'win-ffi/gdi32/struct/bitmap/rgb_quad'
 require 'win-ffi/gdi32/struct/bitmap/bitmap'
 require 'win-ffi/gdi32/struct/bitmap/bitmap_info'
 require 'win-ffi/gdi32/struct/bitmap/bitmap_info_header'
+require 'win-ffi/gdi32/struct/bitmap/bitmap_v4_header'
+require 'win-ffi/gdi32/struct/bitmap/bitmap_v5_header'
 require 'win-ffi/gdi32/struct/bitmap/blend_function'
+require 'win-ffi/gdi32/struct/bitmap/gradient_triangle'
 require 'win-ffi/gdi32/struct/bitmap/tri_vertex'
 
 
@@ -62,7 +65,7 @@ module WinFFI
     #   _In_  const BITMAPINFO *lpbmi,
     #   _In_  UINT fuUsage )
     attach_function 'CreateDIBitmap',
-                    [:hdc, BITMAPINFOHEADER.ptr, CreateBitmap, :pointer, BITMAPINFO.ptr, DibColorIdentifier], :hbitmap
+                    [:hdc, :pointer, CreateBitmap, :pointer, BITMAPINFO.ptr, DibColorIdentifier], :hbitmap
 
     # https://msdn.microsoft.com/en-us/library/dd183494(v=vs.85).aspx
     # HBITMAP CreateDIBSection(
@@ -123,7 +126,7 @@ module WinFFI
     #   _In_  PVOID pMesh,
     #   _In_  ULONG dwNumMesh,
     #   _In_  ULONG dwMode )
-    attach_function 'GdiGradientFill', [:hdc, TRIVERTEX.ptr, :ulong, :pointer, :ulong, GradientFill], :bool
+    attach_function 'GdiGradientFill', [:hdc, :pointer, :ulong, :pointer, :ulong, GradientFill], :bool
 
     # https://msdn.microsoft.com/en-us/library/dd373586(v=vs.85).aspx
     # BOOL GdiTransparentBlt(
@@ -159,7 +162,7 @@ module WinFFI
     #   _In_   UINT uStartIndex,
     #   _In_   UINT cEntries,
     #   _Out_  RGBQUAD *pColors )
-    attach_function 'GetDIBColorTable', [:hdc, :uint, :uint, RGBQUAD.ptr], :uint
+    attach_function 'GetDIBColorTable', [:hdc, :uint, :uint, :pointer], :uint
 
     # https://msdn.microsoft.com/en-us/library/dd144879(v=vs.85).aspx
     # int GetDIBits(
@@ -197,7 +200,7 @@ module WinFFI
     #   _In_  int xMask,
     #   _In_  int yMask,
     #   _In_  DWORD dwRop )
-    attach_function 'MaskBlt', [:hdc, :int, :int, :int, :int, :hdc, :int, :int, :hbitmap, :int, :int, :dword], :bool
+    attach_function 'MaskBlt', [:hdc, :int, :int, :int, :int, :hdc, :int, :int, :hbitmap, :int, :int, BitBltFlag], :bool
 
     # https://msdn.microsoft.com/en-us/library/dd162804(v=vs.85).aspx
     # BOOL PlgBlt(
@@ -211,7 +214,7 @@ module WinFFI
     #   _In_  HBITMAP hbmMask,
     #   _In_  int xMask,
     #   _In_  int yMask )
-    attach_function 'PlgBlt', [:hdc, POINT.ptr, :hdc, :int, :int, :int, :int, :hbitmap, :int, :int], :bool
+    attach_function 'PlgBlt', [:hdc, :pointer, :hdc, :int, :int, :int, :int, :hbitmap, :int, :int], :bool
 
     # https://msdn.microsoft.com/en-us/library/dd162962(v=vs.85).aspx
     # LONG SetBitmapBits(
@@ -234,7 +237,7 @@ module WinFFI
     #   _In_  UINT uStartIndex,
     #   _In_  UINT cEntries,
     #   _In_  const RGBQUAD *pColors )
-    attach_function 'SetDIBColorTable', [:hdc, :uint, :uint, RGBQUAD.ptr], :uint
+    attach_function 'SetDIBColorTable', [:hdc, :uint, :uint, :pointer], :uint
 
     # https://msdn.microsoft.com/en-us/library/dd162973(v=vs.85).aspx
     # int SetDIBits(
@@ -300,7 +303,7 @@ module WinFFI
     #   _In_  int nWidthSrc,
     #   _In_  int nHeightSrc,
     #   _In_  DWORD dwRop )
-    attach_function 'StretchBlt', [:hdc, :int, :int, :int, :int, :hdc, :int, :int, :int, :int, :dword], :bool
+    attach_function 'StretchBlt', [:hdc, :int, :int, :int, :int, :hdc, :int, :int, :int, :int, BitBltFlag], :bool
 
     # https://msdn.microsoft.com/en-us/library/dd145121(v=vs.85).aspx
     # int StretchDIBits(

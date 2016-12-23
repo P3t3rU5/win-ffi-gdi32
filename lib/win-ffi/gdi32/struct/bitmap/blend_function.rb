@@ -9,6 +9,11 @@ module WinFFI
              BlendFlags:                  :byte,
              SourceConstantAlpha:         :byte,
              AlphaFormat:    AlphaChannelFormat
+
+      def initialize
+        super
+        self[:BlendFlags] = 0
+      end
     end
   end
 end
