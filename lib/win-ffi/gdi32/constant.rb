@@ -15,7 +15,7 @@ module WinFFI
     LF_FULLFACESIZE = 64
     MM_MAX_NUMAXES  = 16
 
-    HGDI_ERROR = if WindowsVersion >= :xp then
+    HGDI_ERROR = if WINDOWS_VERSION >= :xp then
       WinFFI.LongToHandle(0xFFFFFFFF)
     else
       FFI::MemoryPointer.new(WinFFI.find_type(:handle)).write_int(-1)

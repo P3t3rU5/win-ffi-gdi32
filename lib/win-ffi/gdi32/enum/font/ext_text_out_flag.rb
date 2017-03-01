@@ -14,7 +14,7 @@ module WinFFI
         :PDY,            0x2000,
     ]
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       buffer += [:REVERSE_INDEX_MAP, 0x10000]
     end
 

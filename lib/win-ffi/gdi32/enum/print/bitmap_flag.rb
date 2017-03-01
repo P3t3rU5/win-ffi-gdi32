@@ -12,11 +12,11 @@ module WinFFI
         :WINDOW_BLT, 0x0040,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [:UMPDMEM, 0x0080]
-      if WindowsVersion >= 7
+      if WINDOWS_VERSION >= 7
         buffer += [:TEMP_ALPHA, 0x0100]
-        if WindowsVersion >= 8
+        if WINDOWS_VERSION >= 8
           buffer += [
               :ACC_NOTIFY, 0x8000,
               :RMT_ENTER,  0x4000,

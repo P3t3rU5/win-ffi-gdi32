@@ -22,7 +22,7 @@ module WinFFI
         :GRADIENTFILL,      0x00020000,
     ]
 
-    buffer += WindowsVersion < :vista ? [:FLAGS, 0x0003b5ff] : [:FLAGS, 0x0003b5ef]
+    buffer += WINDOWS_VERSION < :vista ? [:FLAGS, 0x0003b5ff] : [:FLAGS, 0x0003b5ef]
 
     HookFlag = enum :hook_flag, buffer
 

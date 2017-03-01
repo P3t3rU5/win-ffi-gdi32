@@ -8,7 +8,7 @@ module WinFFI
         :CMYKCOLOR,  0x04,
     ]
 
-    buffer += [:ORIGCOLOR, 0x08] if WindowsVersion >= :xp
+    buffer += [:ORIGCOLOR, 0x08] if WINDOWS_VERSION >= :xp
 
     # BRUSHOBJ::flColorType
     BrushObjColorType = enum :brush_obj_color_type, buffer

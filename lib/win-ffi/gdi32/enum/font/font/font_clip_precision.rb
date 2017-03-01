@@ -12,7 +12,7 @@ module WinFFI
         :MASK,             0x0f
     ]
 
-    buffer += [:DFA_DISABLE, 0x40,] if WindowsVersion >= :vista
+    buffer += [:DFA_DISABLE, 0x40,] if WINDOWS_VERSION >= :vista
 
     FontClipPrecision = enum FFI::Type::UINT8, :font_clip_precision, buffer
   end

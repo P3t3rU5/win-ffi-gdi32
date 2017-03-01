@@ -10,7 +10,7 @@ module WinFFI
         :ANTIALIASED,    4
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :CLEARTYPE,                 5,
           :CLEARTYPE_NATURAL_QUALITY, 6,

@@ -8,7 +8,7 @@ module WinFFI
         :SRCFONTSIG,  3,
     ]
 
-    buffer += [:SRCLOCALE, 0x1000] if WindowsVersion >= :xp
+    buffer += [:SRCLOCALE, 0x1000] if WINDOWS_VERSION >= :xp
 
     TranslateCharsetInfoFlag = enum :translate_charset_info_flag, buffer
 

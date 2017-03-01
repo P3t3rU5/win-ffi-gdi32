@@ -19,9 +19,9 @@ module WinFFI
         :ATTACHED,                 0x00000002
     ]
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       buffer += [:UNSAFE_MODES_ON, 0x00080000]
-      buffer += [:ACC_DRIVER, 0x00000040] if WindowsVersion >= 8
+      buffer += [:ACC_DRIVER, 0x00000040] if WINDOWS_VERSION >= 8
     end
 
     DisplayDeviceFlag = enum :display_device_flag, buffer
