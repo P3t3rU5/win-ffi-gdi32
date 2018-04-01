@@ -50,7 +50,7 @@ module WinFFI
         :BLTALIGNMENT,    119,
 
         :SHADEBLENDCAPS,  120,
-        :COLORMGMTCAPS,   121,
+        :COLORMGMTCAPS,   121
     ]
   end
 end

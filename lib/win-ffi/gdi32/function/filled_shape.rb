@@ -44,7 +44,7 @@ module WinFFI
     #   _In_  HDC hdc,
     #   _In_  const POINT *lpPoints,
     #   _In_  int nCount )
-    attach_function 'Polygon', [:hdc, POINT.ptr(:in), :int], :bool
+    attach_function 'Polygon', [:hdc, :pointer, :int], :bool
 
     # https://msdn.microsoft.com/en-us/library/dd162818(v=vs.85).aspx
     # BOOL PolyPolygon(
@@ -52,7 +52,7 @@ module WinFFI
     #   _In_  const POINT *lpPoints,
     #   _In_  const INT *lpPolyCounts,
     #   _In_  int nCount )
-    attach_function 'PolyPolygon', [:hdc, POINT.ptr(), :pointer, :int], :bool
+    attach_function 'PolyPolygon', [:hdc, :pointer, :pointer, :int], :bool
 
     # https://msdn.microsoft.com/en-us/library/dd162898(v=vs.85).aspx
     # BOOL Rectangle(

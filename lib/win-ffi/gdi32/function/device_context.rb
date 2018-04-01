@@ -2,7 +2,9 @@ require 'win-ffi/gdi32'
 
 require 'win-ffi/core/struct/point'
 require 'win-ffi/gdi32/struct/devmode'
+require 'win-ffi/gdi32/enum/device_context/stock_object'
 require 'win-ffi/gdi32/enum/device_context/set_layout_flag'
+require 'win-ffi/gdi32/enum/device_context/device_context'
 
 require 'win-ffi/gdi32/typedef/hgdiobj'
 
@@ -86,7 +88,7 @@ module WinFFI
     # int GetDeviceCaps(
     #   _In_  HDC hdc,
     #   _In_  int nIndex )
-    attach_function 'GetDeviceCaps', [:hdc, :int], :int
+    attach_function 'GetDeviceCaps', [:hdc, DeviceContext], :int
 
     # https://msdn.microsoft.com/en-us/library/dd144896(v=vs.85).aspx
     # DWORD GetLayout( _In_  HDC hdc )
@@ -105,7 +107,7 @@ module WinFFI
 
     # https://msdn.microsoft.com/en-us/library/dd144925(v=vs.85).aspx
     # HGDIOBJ GetStockObject( _In_  int fnObject )
-    attach_function 'GetStockObject', [:int], :hgdiobj
+    attach_function 'GetStockObject', [StockObject], :hgdiobj
 
     # https://msdn.microsoft.com/en-us/library/dd162925(v=vs.85).aspx
     # HDC ResetDC(

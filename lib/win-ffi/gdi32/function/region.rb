@@ -8,6 +8,9 @@ require 'win-ffi/core/struct/rect'
 require 'win-ffi/gdi32/struct/region/rgn_data'
 require 'win-ffi/gdi32/struct/transform/xform'
 
+require 'win-ffi/gdi32/enum/region/region_style'
+require 'win-ffi/gdi32/enum/region_flag'
+
 module WinFFI
   module Gdi32
 
@@ -17,7 +20,7 @@ module WinFFI
     #   _In_ HRGN hrgnSrc1,
     #   _In_ HRGN hrgnSrc2,
     #   _In_ int  fnCombineMode)
-    attach_function 'CombineRgn', [:hrgn, :hrgn, :hrgn, :int], :int
+    attach_function 'CombineRgn', [:hrgn, :hrgn, :hrgn, RegionStyle], :int
 
     # https://msdn.microsoft.com/en-us/library/dd183496(v=vs.85).aspx
     # HRGN CreateEllipticRgn(
@@ -138,7 +141,7 @@ module WinFFI
 
     # https://msdn.microsoft.com/en-us/library/dd145080(v=vs.85).aspx
     # int SetPolyFillMode(_In_ HDC hdc, _In_ int iPolyFillMode)
-    attach_function 'SetPolyFillMode', [:hdc, :int], :int
+    attach_function 'SetPolyFillMode', [:hdc, PolyFillMode], :int
 
     # https://msdn.microsoft.com/en-us/library/dd145087(v=vs.85).aspx
     # BOOL SetRectRgn(
