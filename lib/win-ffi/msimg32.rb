@@ -5,6 +5,6 @@ module WinFFI
   module Msimg32
     extend LibBase
 
-    ffi_lib 'msimg32'
+    ffi_lib "#{ENV['windir']}\\System32\\msimg32.dll"
   end
 end

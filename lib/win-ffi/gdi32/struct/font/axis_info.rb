@@ -1,4 +1,4 @@
-require 'win-ffi/gdi32'
+require 'win-ffi/gdi32/constant'
 
 module WinFFI
   module Gdi32

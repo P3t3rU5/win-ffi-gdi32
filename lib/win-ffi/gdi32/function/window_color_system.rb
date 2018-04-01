@@ -1,4 +1,3 @@
-require 'win-ffi/gdi32/typedef/hpalette'
 require 'win-ffi/gdi32/typedef/hcolorspace'
 
 require 'win-ffi/gdi32/struct/windows_color_space/log_color_space'

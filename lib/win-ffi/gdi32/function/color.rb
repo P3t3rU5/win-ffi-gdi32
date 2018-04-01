@@ -1,6 +1,5 @@
 require 'win-ffi/gdi32/enum/font/system_palette'
 
-require 'win-ffi/gdi32/typedef/hpalette'
 require 'win-ffi/gdi32/typedef/hgdiobj'
 
 require 'win-ffi/gdi32/struct/color/palette_entry'
