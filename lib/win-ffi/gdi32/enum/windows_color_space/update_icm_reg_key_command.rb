@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     # UpdateICMRegKey Constants
@@ -10,7 +8,7 @@ module WinFFI
         :SETDEFAULTPROFILE,   4,
         :REGISTERICMATCHER,   5,
         :UNREGISTERICMATCHER, 6,
-        :QUERYMATCH,          7,
+        :QUERYMATCH,          7
     ]
 
     define_prefix(:ICM, UpdateICMRegKeyCommand)

@@ -1,12 +1,19 @@
-require 'win-ffi/gdi32/struct/color/palette_entry'
+require_relative 'palette_entry'
 
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd145040(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-taglogpalette
     class LOGPALETTE < FFIAdditions::Struct
-      layout palVersion:              :word,
-             palNumEntries:           :word,
-             palPalEntry: [PALETTEENTRY, 1]
+      def palVersion; end
+      def palVersion=(v) end
+      def palNumEntries; end
+      def palNumEntries=(v) end
+      def palPalEntry; end
+      def palPalEntry=(v) end
+
+      layout palVersion:    :word,
+             palNumEntries: :word,
+             palPalEntry:   [PALETTEENTRY, 1]
     end
   end
 end

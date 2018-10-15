@@ -1,8 +1,7 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd162713(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-exttextouta
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-exttextoutw
     buffer = [
         :OPAQUE,         0x0002,
         :CLIPPED,        0x0004,
@@ -19,5 +18,7 @@ module WinFFI
     end
 
     ExtTextOutFlag = enum :ext_text_out_text, buffer
+
+    define_prefix(:ETO, ExtTextOutFlag)
   end
 end

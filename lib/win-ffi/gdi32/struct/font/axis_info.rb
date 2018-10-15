@@ -2,10 +2,18 @@ require 'win-ffi/gdi32/constant'
 
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd183361(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagaxisinfoa
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagaxisinfow
     class AXISINFO < FFIAdditions::Struct
-      layout axMinValue:                               :long,
-             axMaxValue:                               :long,
+      def axMinValue; end
+      def axMinValue=(v) end
+      def axMaxValue; end
+      def axMaxValue=(v) end
+      def axAxisName; end
+      def axAxisName=(v) end
+
+      layout axMinValue: :long,
+             axMaxValue: :long,
              axAxisName: WideInlineString.new(MM_MAX_NUMAXES)
     end
   end

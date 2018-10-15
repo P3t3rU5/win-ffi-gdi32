@@ -1,17 +1,15 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     # Mapping Modes
     MappingMode = enum :mapping_mode, [
-        :TEXT,        1,
-        :LOMETRIC,    2,
-        :HIMETRIC,    3,
-        :LOENGLISH,   4,
-        :HIENGLISH,   5,
-        :TWIPS,       6,
-        :ISOTROPIC,   7,
-        :ANISOTROPIC, 8,
+        :TEXT,           1,
+        :LOMETRIC,       2,
+        :HIMETRIC,       3,
+        :LOENGLISH,      4,
+        :HIENGLISH,      5,
+        :TWIPS,          6,
+        :ISOTROPIC,      7,
+        :ANISOTROPIC,    8,
 
         # Min and Max Mapping Mode values
         :MIN,            1,

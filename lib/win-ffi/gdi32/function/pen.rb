@@ -1,28 +1,28 @@
-require 'win-ffi/gdi32/enum/pen/pen_style'
+require_relative '../enum/pen/style'
 
-require 'win-ffi/gdi32/struct/pen/log_pen'
-require 'win-ffi/gdi32/struct/brush/log_brush'
+require_relative '../struct/pen/log'
+require_relative '../struct/brush/log'
 
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd183509(v=vs.85).aspx
-    # HPEN CreatePen(
-    #   _In_ int      fnPenStyle,
-    #   _In_ int      nWidth,
-    #   _In_ COLORREF crColor)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-createpen
+    # HPEN CreatePen( _In_ int      fnPenStyle, _In_ int      nWidth, _In_ COLORREF crColor)
+    def self.CreatePen(fnPenStyle, nWidth, crColor); end
     attach_function 'CreatePen', [PenStyle, :int, :colorref], :hpen
 
-    # https://msdn.microsoft.com/en-us/library/dd162970(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-createpenindirect
     # HPEN CreatePenIndirect(_In_ const LOGPEN *lplgpn)
+    def self.CreatePenIndirect(lplgpn); end
     attach_function 'CreatePenIndirect', [LOGPEN.ptr(:in)], :hpen
 
-    # https://msdn.microsoft.com/en-us/library/dd162705(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-extcreatepen
     # HPEN ExtCreatePen(
     #   _In_       DWORD    dwPenStyle,
     #   _In_       DWORD    dwWidth,
     #   _In_ const LOGBRUSH *lplb,
     #   _In_       DWORD    dwStyleCount,
     #   _In_ const DWORD    *lpStyle)
+    def self.ExtCreatePen(dwPenStyle, dwWidth, lplb, dwStyleCount, lpStyle); end
     attach_function 'ExtCreatePen', [:dword, :dword, LOGBRUSH.ptr(:in), :dword, :pointer], :hpen
   end
 end

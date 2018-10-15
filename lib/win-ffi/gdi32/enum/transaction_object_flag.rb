@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     TransactionObjectFlag = enum :transaction_object_flag, [

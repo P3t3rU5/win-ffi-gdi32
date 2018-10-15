@@ -1,10 +1,13 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd162724(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_fixed
     class FIXED < FFIAdditions::Struct
-      layout fract:  :word,
+      def fract; end
+      def fract=(v); end
+      def value; end
+      def value=(v); end
+
+      layout fract: :word,
              value: :short
     end
   end

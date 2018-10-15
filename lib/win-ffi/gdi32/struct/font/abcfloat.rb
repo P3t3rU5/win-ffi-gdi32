@@ -1,10 +1,17 @@
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd162455(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_abcfloat
     class ABCFLOAT < FFIAdditions::Struct
+      def abcfA; end
+      def abcfA=(v); end
+      def abcfB; end
+      def abcfB=(v); end
+      def abcfC; end
+      def abcfC=(v); end
+
       layout abcfA: :float,
              abcfB: :float,
-             abcfC:   :int
+             abcfC: :int
     end
   end
 end

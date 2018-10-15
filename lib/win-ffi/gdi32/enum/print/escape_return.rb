@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     # GDI Escapes
@@ -84,18 +82,18 @@ module WinFFI
         :POSTSCRIPT_PASSTHROUGH,     4115,
         :ENCAPSULATED_POSTSCRIPT,    4116,
 
-        :POSTSCRIPT_IDENTIFY,        4117, # new escape for NT5 pscript driver
-        :POSTSCRIPT_INJECTION,       4118, # new escape for NT5 pscript driver
+        :POSTSCRIPT_IDENTIFY,        4117,
+        :POSTSCRIPT_INJECTION,       4118,
 
         :CHECKJPEGFORMAT,            4119,
         :CHECKPNGFORMAT,             4120,
 
-        :GET_PS_FEATURESETTING,      4121, # new escape for NT5 pscript driver
+        :GET_PS_FEATURESETTING,      4121,
 
-        :GDIPLUS_TS_QUERYVER,        4122, # private escape
-        :GDIPLUS_TS_RECORD,          4123, # private escape
+        :GDIPLUS_TS_QUERYVER,        4122,
+        :GDIPLUS_TS_RECORD,          4123,
 
-        :SPCLPASSTHROUGH2,           4568, # new escape for NT5 pscript driver
+        :SPCLPASSTHROUGH2,           4568
     ]
   end
 end

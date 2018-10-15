@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     buffer = [
@@ -16,14 +14,10 @@ module WinFFI
       buffer += [:UMPDMEM, 0x0080]
       if WINDOWS_VERSION >= 7
         buffer += [:TEMP_ALPHA, 0x0100]
-        if WINDOWS_VERSION >= 8
-          buffer += [
-              :ACC_NOTIFY, 0x8000,
-              :RMT_ENTER,  0x4000,
-              :RESERVED,   0x3E00,
-          ]
+        buffer += if WINDOWS_VERSION >= 8
+          [:ACC_NOTIFY, 0x8000, :RMT_ENTER, 0x4000, :RESERVED, 0x3E00]
         else
-          buffer += [:RESERVED, 0xFE00]
+          [:RESERVED, 0xFE00]
         end
       else
         buffer += [:RESERVED, 0xFF00]

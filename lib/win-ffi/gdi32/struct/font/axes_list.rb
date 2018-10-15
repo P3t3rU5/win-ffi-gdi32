@@ -1,11 +1,18 @@
-require 'win-ffi/gdi32/struct/font/axis_info'
+require_relative 'axis_info'
 
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd183360(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagaxeslista
     class AXESLIST < FFIAdditions::Struct
-      layout axlReserved:      :dword,
-             axlNumAxes:       :dword,
+      def axlReserved; end
+      def axlReserved=(v); end
+      def axlNumAxes; end
+      def axlNumAxes=(v); end
+      def axlAxisInfo; end
+      def axlAxisInfo=(v); end
+
+      layout axlReserved: :dword,
+             axlNumAxes:  :dword,
              axlAxisInfo: AXISINFO.ptr
     end
   end

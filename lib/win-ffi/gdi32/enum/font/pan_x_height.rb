@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     PanXHeight = enum :pan_x_height, [
@@ -12,5 +10,7 @@ module WinFFI
         :DUCKING_STD,    6, # Ducking/Standard
         :DUCKING_LARGE,  7, # Ducking/Large
     ]
+
+    define_prefix(:PAN_XHEIGHT, PanXHeight)
   end
 end

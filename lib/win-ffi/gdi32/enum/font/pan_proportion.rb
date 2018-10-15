@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     PanProportion = enum :pan_proportion, [
@@ -14,5 +12,7 @@ module WinFFI
         :VERY_CONDENSED, 8, # Very Condensed
         :MONOSPACED,     9, # Monospaced
     ]
+
+    define_prefix(:PAN_PROP, PanProportion)
   end
 end

@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     WglSwapLayerBuffer = enum :wgl_swap_layer_buffer, [

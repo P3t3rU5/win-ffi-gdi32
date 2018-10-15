@@ -1,20 +1,33 @@
-require 'win-ffi/gdi32/enum/clipping/clipping_option'
-require 'win-ffi/gdi32/enum/clipping/drawing_complexity'
-require 'win-ffi/gdi32/enum/clipping/full_complexity'
-require 'win-ffi/gdi32/enum/clipping/type_clipping'
+require 'win-ffi/core/struct/rectl'
 
-require 'win-ffi/gdi32/struct/metafile/rectl'
+require_relative '../../enum/clipping/option'
+require_relative '../../enum/clipping/drawing_complexity'
+require_relative '../../enum/clipping/full_complexity'
+require_relative '../../enum/clipping/type'
 
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff539417%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winddi/ns-winddi-_clipobj
     class CLIPOBJ < FFIAdditions::Struct
-      layout  iUniq:                   :ulong,
-              rclBounds:                RECTL,
+      def iUniq; end
+      def iUniq=(v) end
+      def rclBounds; end
+      def rclBounds=(v) end
+      def iDComplexity; end
+      def iDComplexity=(v) end
+      def iFComplexity; end
+      def iFComplexity=(v) end
+      def iMode; end
+      def iMode=(v) end
+      def fjOptions; end
+      def fjOptions=(v) end
+
+      layout  iUniq:        :ulong,
+              rclBounds:    RECTL,
               iDComplexity: DrawingComplexity,
-              iFComplexity:    FullComplexity,
-              iMode:             TypeClipping,
-              fjOptions:       ClippingOption
+              iFComplexity: FullComplexity,
+              iMode:        TypeClipping,
+              fjOptions:    ClippingOption
     end
   end
 end

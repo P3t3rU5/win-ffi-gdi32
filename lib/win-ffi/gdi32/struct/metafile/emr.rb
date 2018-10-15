@@ -1,8 +1,6 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd162512(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemr
     # Base record type for the enhanced metafile.
     class EMR < FFIAdditions::Struct
       layout iType: :dword, # Enhanced metafile record type

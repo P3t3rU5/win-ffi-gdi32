@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     # Parameter for GET_PS_FEATURESETTING escape
@@ -10,7 +8,7 @@ module WinFFI
         :CUSTPAPER,  3,
         :MIRROR,     4,
         :NEGATIVE,   5,
-        :PROTOCOL,   6,
+        :PROTOCOL,   6
     ]
 
     define_prefix(:FEATURESETTING, FeatureSetting)

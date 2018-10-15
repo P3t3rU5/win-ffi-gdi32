@@ -1,19 +1,30 @@
-require 'win-ffi/gdi32/enum/bitmap/alpha_channel_blend_function'
-require 'win-ffi/gdi32/enum/bitmap/alpha_channel_format'
+require_relative '../../enum/bitmap/alpha_channel_blend_function'
+require_relative '../../enum/bitmap/alpha_channel_format'
 
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd183393(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_blendfunction
     class BLENDFUNCTION < FFIAdditions::Struct
-      layout BlendOp: AlphaChannelBlendFunction,
-             BlendFlags:                  :byte,
-             SourceConstantAlpha:         :byte,
-             AlphaFormat:    AlphaChannelFormat
+      def BlendOp; end
+      def BlendOp=(v); end
+      def BlendFlags; end
+      def BlendFlags=(v); end
+      def SourceConstantAlpha; end
+      def SourceConstantAlpha=(v); end
+      def AlphaFormat; end
+      def AlphaFormat=(v); end
+
+      layout BlendOp:             AlphaChannelBlendFunction,
+             BlendFlags:          :byte,
+             SourceConstantAlpha: :byte,
+             AlphaFormat:         AlphaChannelFormat
 
       def initialize
         super
-        self[:BlendFlags] = 0
+        self.BlendFlags = 0
       end
+
+      private :BlendFlags, :BlendFlags=
     end
   end
 end

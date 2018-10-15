@@ -1,11 +1,16 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd145024(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagkerningpair
     class KERNINGPAIR < FFIAdditions::Struct
-      layout wFirst:     :word,
-             wSecond:    :word,
+      def wFirst; end
+      def wFirst=(v); end
+      def wSecond; end
+      def wSecond=(v); end
+      def iKernAmount; end
+      def iKernAmount=(v); end
+
+      layout wFirst:      :word,
+             wSecond:     :word,
              iKernAmount: :int
     end
   end

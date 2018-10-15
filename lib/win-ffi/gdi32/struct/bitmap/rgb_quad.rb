@@ -1,9 +1,16 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd162938%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagrgbquad
     class RGBQUAD < FFIAdditions::Struct
+      def rgbBlue; end
+      def rgbBlue=(v); end
+      def rgbGreen; end
+      def rgbGreen=(v); end
+      def rgbRed; end
+      def rgbRed=(v); end
+      def rgbReserved; end
+      def rgbReserved=(v); end
+
       layout rgbBlue:     :byte,
              rgbGreen:    :byte,
              rgbRed:      :byte,

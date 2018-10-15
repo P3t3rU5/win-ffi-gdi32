@@ -1,12 +1,17 @@
-require 'win-ffi/gdi32/struct/font/enum_log_font_extended'
-require 'win-ffi/gdi32/struct/font/design_vector'
+require_relative 'enum_log_font_extended'
+require_relative 'design_vector'
 
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd162628(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagenumlogfontexdva
     class ENUMLOGFONTEXDV < FFIAdditions::Struct
+      def elfEnumLogfontEx; end
+      def elfEnumLogfontEx=(v); end
+      def elfDesignVector; end
+      def elfDesignVector=(v); end
+
       layout elfEnumLogfontEx: ENUMLOGFONTEX,
-             elfDesignVector:   DESIGNVECTOR
+             elfDesignVector:  DESIGNVECTOR
     end
   end
 end

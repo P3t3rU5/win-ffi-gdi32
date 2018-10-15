@@ -1,20 +1,28 @@
-require 'win-ffi/gdi32/enum/font/true_type_polygon_header_type'
+require_relative '../../enum/font/true_type_polygon_header_type'
 
-require 'win-ffi/gdi32/struct/font/point_fx'
+require_relative 'point_fx'
 
 module WinFFI
   module Gdi32
-
-    # https://msdn.microsoft.com/en-us/library/dd145158(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagttpolygonheader
     class TTPOLYGONHEADER < FFIAdditions::Struct
-      layout cb:                        :dword,
-             dwType: TrueTypePolygonHeaderType,
-             pfxStart:                 POINTFX
+      def cb; end
+      def cb=(v); end
+      def dwType; end
+      def dwType=(v); end
+      def pfxStart; end
+      def pfxStart=(v); end
+
+      layout cb:       :dword,
+             dwType:   TrueTypePolygonHeaderType,
+             pfxStart: POINTFX
 
       def initialize
         super
-        self[:cb] = self.size
+        self.cb = self.size
       end
+
+      private :cb, :cb=
     end
   end
 end

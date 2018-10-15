@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     PanStrokeVariation = enum :pan_stroke_variation, [
@@ -13,5 +11,7 @@ module WinFFI
         :RAPID_HORZ,   7, # Rapid/Horizontal
         :INSTANT_VERT, 8, # Instant/Vertical
     ]
+
+    define_prefix(:PAN_STROKE, PanStrokeVariation)
   end
 end

@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     # Object Definitions for EnumObjects()
@@ -17,7 +15,7 @@ module WinFFI
         :EXTPEN,      11,
         :ENHMETADC,   12,
         :ENHMETAFILE, 13,
-        :COLORSPACE,  14,
+        :COLORSPACE,  14
     ]
 
     define_prefix(:OBJ, GetObjectType)

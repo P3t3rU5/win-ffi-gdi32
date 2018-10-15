@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     GetCharacterPlacementClass = enum :get_character_placement_class, [
@@ -12,10 +10,10 @@ module WinFFI
         :LATINNUMERICTERMINATOR, 6,
         :LATINNUMERICSEPARATOR,  7,
         :NUMERICSEPARATOR,       8,
-        :PREBOUNDLTR,         0x80,
-        :PREBOUNDRTL,         0x40,
-        :POSTBOUNDLTR,        0x20,
-        :POSTBOUNDRTL,        0x10
+        :PREBOUNDLTR,            0x80,
+        :PREBOUNDRTL,            0x40,
+        :POSTBOUNDLTR,           0x20,
+        :POSTBOUNDRTL,           0x10
     ]
 
     define_prefix(:GCPCLASS, GetCharacterPlacementClass)

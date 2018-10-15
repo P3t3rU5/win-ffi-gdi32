@@ -3,9 +3,9 @@ module WinFFI
     # ntmFlags field flags
     # https://msdn.microsoft.com/en-us/library/dd162741(v=vs.85).aspx
     NewTextMetricFlag = enum :new_text_metric_flag, [
-        :REGULAR, 0x00000040,
-        :BOLD,    0x00000020,
-        :ITALIC,  0x00000001,
+        :REGULAR,        0x00000040,
+        :BOLD,           0x00000020,
+        :ITALIC,         0x00000001,
 
         # new in NT 5.0
         :NONNEGATIVE_AC, 0x00010000,

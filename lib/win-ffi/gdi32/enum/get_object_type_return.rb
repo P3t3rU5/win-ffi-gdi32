@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     GetObjectTypeReturn = enum :get_object_type_return, [
@@ -18,6 +16,8 @@ module WinFFI
         :ENHMETAFILE, 13,
         :COLORSPACE,  14,
     ]
+
+    GDI_OBJ_LAST = 14
 
     define_prefix(:OBJ, GetObjectTypeReturn)
   end

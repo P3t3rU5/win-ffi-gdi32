@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     IlluminantIndexValue = enum :illuminant_index_value, [
@@ -11,8 +9,13 @@ module WinFFI
         :D55,            5,
         :D65,            6,
         :D75,            7,
-        :F2,             8,
         :MAX_INDEX,      8,
+        :F2,             8,
+
+        :TUNGSTEN,       1,
+        :NTSC,           3,
+        :DAYLIGHT,       3,
+        :FLUORESCENT,    8,
     ]
 
     define_prefix(:ILLUMINANT, IlluminantIndexValue)

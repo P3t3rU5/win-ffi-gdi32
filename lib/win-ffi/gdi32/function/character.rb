@@ -1,24 +1,21 @@
-require 'win-ffi/gdi32/struct/character/char_set_info'
-require 'win-ffi/gdi32/enum/character/translate_charset_info_flag'
+require_relative '../struct/character/char_set_info'
+require_relative '../enum/character/translate_charset_info_flag'
 
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd318125(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-gettextcharset
     # int GetTextCharset(_In_ HDC hdc)
+    def self.GetTextCharset(hdc); end
     attach_function 'GetTextCharset', [:hdc], :int
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd318126(v=vs.85).aspx
-    # int GetTextCharsetInfo(
-    #   _In_      HDC             hdc,
-    #   _Out_opt_ LPFONTSIGNATURE lpSig,
-    #   _In_      DWORD           dwFlags)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-gettextcharsetinfo
+    # int GetTextCharsetInfo( _In_ HDC hdc, _Out_opt_ LPFONTSIGNATURE lpSig, _In_ DWORD dwFlags)
+    def self.GetTextCharsetInfo(hdc, lpSig, dwFlags); end
     attach_function 'GetTextCharsetInfo', [:hdc, FONTSIGNATURE, :dword], :int
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd374077(v=vs.85).aspx
-    # BOOL TranslateCharsetInfo(
-    #   _Inout_ DWORD FAR     *lpSrc,
-    #   _Out_   LPCHARSETINFO lpCs,
-    #   _In_    DWORD         dwFlags)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-gettextcharset
+    # BOOL TranslateCharsetInfo( _Inout_ DWORD FAR *lpSrc, _Out_ LPCHARSETINFO lpCs, _In_ DWORD dwFlags)
+    def self.TranslateCharsetInfo(lpSrc, lpCs, dwFlags); end
     attach_function 'TranslateCharsetInfo', [:pointer, CHARSETINFO.ptr(:out), TranslateCharsetInfoFlag], :bool
   end
 end

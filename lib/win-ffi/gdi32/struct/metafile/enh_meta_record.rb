@@ -1,11 +1,9 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd162608(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagenhmetarecord
     class ENHMETARECORD < FFIAdditions::Struct
-      layout iType:     :dword,
-             nSize:     :dword,
+      layout iType: :dword,
+             nSize: :dword,
              dParm: [:dword, 1]
     end
   end

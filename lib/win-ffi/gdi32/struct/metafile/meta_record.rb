@@ -1,12 +1,10 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd145056(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagmetarecord
     class METARECORD < FFIAdditions::Struct
-      layout rdSize:    :dword,
+      layout rdSize:     :dword,
              rdFunction: :word,
-             rdParm: [:word, 1]
+             rdParm:     [:word, 1]
     end
   end
 end

@@ -1,8 +1,13 @@
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd145197(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagwcrange
     class WCRANGE < FFIAdditions::Struct
-      layout wcLow:     :char,
+      def wcLow; end
+      def wcLow=(v); end
+      def cGlyphs; end
+      def cGlyphs=(v); end
+
+      layout wcLow:   :char,
              cGlyphs: :ushort
     end
   end

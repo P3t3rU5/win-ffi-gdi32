@@ -1,13 +1,10 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     if WINDOWS_VERSION >= :vista
-      # https://msdn.microsoft.com/en-us/library/dd979583(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/desktop/Monitor/destroyphysicalmonitorinternal
       # NTSTATUS WINAPI DestroyPhysicalMonitorInternal(_In_  HANDLE hMonitor)
-      attach_function 'DestroyPhysicalMonitorInternal', [:handle], :ulong
-
+      def self.DestroyPhysicalMonitorInternal(hMonitor); end
+      attach_function 'DestroyPhysicalMonitorInternal', [:hmonitor], :ulong
     end
-
   end
 end

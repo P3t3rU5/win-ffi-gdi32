@@ -1,5 +1,3 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
   module Gdi32
     GetCharacterPlacementFlag = enum :get_character_placement, [
