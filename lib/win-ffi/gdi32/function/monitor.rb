@@ -1,8 +1,9 @@
 module WinFFI
-  module Gdi32
-    if WINDOWS_VERSION >= :vista
+  if WINDOWS_VERSION >= :vista
+    module Gdi32
       # https://docs.microsoft.com/en-us/windows/desktop/Monitor/destroyphysicalmonitorinternal
-      # NTSTATUS WINAPI DestroyPhysicalMonitorInternal(_In_  HANDLE hMonitor)
+      # @param [FFI::Pointer] hMonitor
+      # @return [Integer]
       def self.DestroyPhysicalMonitorInternal(hMonitor); end
       attach_function 'DestroyPhysicalMonitorInternal', [:hmonitor], :ulong
     end

@@ -7,57 +7,73 @@ require_relative '../enum/painting_drawing/background_mode'
 module WinFFI
   module Gdi32
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-gdiflush
-    # BOOL GdiFlush(void)
+    # @return [true, false]
     def self.GdiFlush; end
     attach_function 'GdiFlush', [:void], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-gdigetbatchlimit
-    # DWORD GdiGetBatchLimit(void)
+    # @return [Integer]
     def self.GdiGetBatchLimit; end
-    attach_function 'GdiGetBatchLimit', [:void], :dword
+    attach_function 'GdiGetBatchLimit', [], :dword
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-gdisetbatchlimit
-    # DWORD GdiSetBatchLimit( _In_  DWORD dwLimit )
+    # @param [Integer] dwLimit
+    # @return [Integer]
     def self.GdiSetBatchLimit(dwLimit) end
     attach_function 'GdiSetBatchLimit', [:dword], :dword
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-getbkcolor
-    # COLORREF GetBkColor( _In_  HDC hdc )
+    # @param [FFI::Pointer] hdc
+    # @return [Integer]
     def self.GetBkColor(hdc) end
     attach_function 'GetBkColor', [:hdc], :colorref
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-getbkmode
-    # int GetBkMode( _In_  HDC hdc )
+    # @param [FFI::Pointer] hdc
+    # @return [Integer]
     def self.GetBkMode(hdc) end
     attach_function 'GetBkMode', [:hdc], :int
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-getboundsrect
-    # UINT GetBoundsRect( _In_   HDC hdc, _Out_  LPRECT lprcBounds, _In_   UINT flags )
+    # @param [FFI::Pointer] hdc
+    # @param [FFI::Pointer] lprcBounds
+    # @param [Integer] flags
+    # @return [Integer]
     def self.GetBoundsRect(hdc, lprcBounds, flags) end
-    attach_function 'GetBoundsRect', [:hdc, RECT.ptr, :uint], :uint
+    attach_function 'GetBoundsRect', [:hdc, RECT.ptr(:out), :uint], :uint
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-getrop2
-    # int GetROP2( _In_  HDC hdc )
+    # @param [FFI::Pointer] hdc
+    # @return [Integer]
     def self.GetROP2(hdc) end
     attach_function 'GetROP2', [:hdc], :int
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-setbkcolor
-    # COLORREF SetBkColor( _In_  HDC hdc, _In_  COLORREF crColor )
+    # @param [FFI::Pointer] hdc
+    # @param [Integer] crColor
+    # @return [Integer]
     def self.SetBkColor(hdc, crColor) end
     attach_function 'SetBkColor', [:hdc, :colorref], :colorref
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-SetBkMode
-    # int SetBkMode( _In_  HDC hdc, _In_  int iBkMode )
+    # @param [FFI::Pointer] hdc
+    # @param [Integer] iBkMode
+    # @return [Integer]
     def self.SetBkMode(hdc, iBkMode) end
     attach_function 'SetBkMode', [:hdc, BackgroundMode], :int
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-setboundsrect
-    # UINT SetBoundsRect( _In_  HDC hdc, _In_  const RECT *lprcBounds, _In_  UINT flags )
+    # @param [FFI::Pointer] hdc
+    # @param [FFI::Pointer] lprcBounds
+    # @param [Integer] flags
+    # @return [Integer]
     def self.SetBoundsRect(hdc, lprcBounds, flags) end
-    attach_function 'SetBoundsRect', [:hdc, RECT.ptr, BoundsRectFlag], :uint
+    attach_function 'SetBoundsRect', [:hdc, RECT.ptr(:in), BoundsRectFlag], :uint
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-setrop2
-    # int SetROP2( _In_  HDC hdc, _In_  int fnDrawMode )
+    # @param [FFI::Pointer] hdc
+    # @param [Integer] fnDrawMode
+    # @return [Integer]
     def self.SetROP2(hdc, fnDrawMode) end
     attach_function 'SetROP2', [:hdc, RasterOps2], :int
   end

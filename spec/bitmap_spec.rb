@@ -1,13 +1,11 @@
-require 'rspec'
 require_relative 'spec_helper'
 
-require 'win-ffi/gdi32/function/bitmap'
-require 'win-ffi/gdi32/function/brush'
-require 'win-ffi/gdi32/function/device_context'
-require 'win-ffi/gdi32/function/pen'
-require 'win-ffi/gdi32/macro/color'
+require_relative '../lib/win-ffi/gdi32/function/bitmap'
+require_relative '../lib/win-ffi/gdi32/function/brush'
+require_relative '../lib/win-ffi/gdi32/function/device_context'
+require_relative '../lib/win-ffi/gdi32/function/pen'
+require_relative '../lib/win-ffi/gdi32/macro/color'
 
-$LOAD_PATH.unshift File.expand_path('../../win-ffi-user32/lib', __dir__)
 require 'win-ffi/user32/function/device_context'
 
 require 'ffi-additions/array'

@@ -9,48 +9,69 @@ require_relative '../struct/brush/log'
 module WinFFI
   module Gdi32
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-createbrushindirect
-    # HBRUSH CreateBrushIndirect( _In_  const LOGBRUSH *lplb )
+    # @param [FFI::Pointer] lplb
+    # @return [FFI::Pointer]
     def self.CreateBrushIndirect(lplb); end
     attach_function 'CreateBrushIndirect', [LOGBRUSH.ptr(:in)], :hbrush
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-createdibpatternbrush
-    # HBRUSH CreateDIBPatternBrush( _In_  HGLOBAL hglbDIBPacked, _In_  UINT fuColorSpec )
+    # @param [FFI::Pointer] hglbDIBPacked
+    # @param [Integer] fuColorSpec
+    # @return [FFI::Pointer]
     def self.CreateDIBPatternBrush(hglbDIBPacked, fuColorSpec); end
     attach_function 'CreateDIBPatternBrush', [:hglobal, DibColorIdentifier], :hbrush
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-createdibpatternbrushpt
-    # HBRUSH CreateDIBPatternBrushPt( _In_  const VOID *lpPackedDIB, _In_  UINT iUsage )
+    # @param [FFI::Pointer] lpPackedDIB
+    # @param [Integer] iUsage
+    # @return [FFI::Pointer]
     def self.CreateDIBPatternBrushPt(lpPackedDIB, iUsage); end
     attach_function 'CreateDIBPatternBrushPt', [:pointer, DibColorIdentifier], :hbrush
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-createhatchbrush
-    # HBRUSH CreateHatchBrush( _In_  int fnStyle, _In_  COLORREF clrref )
+    # @param [Integer] fnStyle
+    # @param [Integer] clrref
+    # @return [FFI::Pointer]
     def self.CreateHatchBrush(fnStyle, clrref); end
     attach_function 'CreateHatchBrush', [HatchStyle, :colorref], :hbrush
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-createpatternbrush
-    # HBRUSH CreatePatternBrush( _In_  HBITMAP hbmp )
+    # @param [FFI::Pointer] hbmp
+    # @return [FFI::Pointer]
     def self.CreatePatternBrush(hbmp); end
     attach_function 'CreatePatternBrush', [:hbitmap], :hbrush
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-createsolidbrush
-    # HBRUSH CreateSolidBrush( _In_  COLORREF crColor )
+    # @param [Integer] crColor
+    # @return [FFI::Pointer]
     def self.CreateSolidBrush(crColor); end
     attach_function 'CreateSolidBrush', [:colorref], :hbrush
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-createsolidbrush
-    # BOOL GetBrushOrgEx( _In_   HDC hdc, _Out_  LPPOINT lppt )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-getbrushorgex
+    # @param [FFI::Pointer] hdc
+    # @param [FFI::Pointer] lppt
+    # @return [true, false]
     def self.GetBrushOrgEx(hdc, lppt); end
     attach_function 'GetBrushOrgEx', [:hdc, POINT.ptr(:out)], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-patblt
-    # BOOL PatBlt(_In_ HDC hdc, _In_ int nXLeft, _In_ int nYLeft, _In_ int nWidth, _In_ int nHeight, _In_ DWORD dwRop)
+    # @param [FFI::Pointer] hdc
+    # @param [Integer] nXLeft
+    # @param [Integer] nYLeft
+    # @param [Integer] nWidth
+    # @param [Integer] nHeight
+    # @param [Integer] dwRop
+    # @return [true, false]
     def self.PatBlt(hdc, nXLeft, nYLeft, nWidth, nHeight, dwRop); end
     attach_function 'PatBlt', [:hdc, :int, :int, :int, :int, BitBltFlag], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-setbrushorgex
     # Same as FixBrushOrgEx (win 95)
-    # BOOL SetBrushOrgEx( _In_   HDC hdc, _In_   int nXOrg, _In_   int nYOrg, _Out_  LPPOINT lppt )
+    # @param [FFI::Pointer] hdc
+    # @param [Integer] nXOrg
+    # @param [Integer] nYOrg
+    # @param [FFI::Pointer] lppt
+    # @return [true, false]
     def self.SetBrushOrgEx(hdc, nXOrg, nYOrg, lppt); end
     attach_function 'SetBrushOrgEx', [:hdc, :int, :int, POINT.ptr(:out)], :bool
   end

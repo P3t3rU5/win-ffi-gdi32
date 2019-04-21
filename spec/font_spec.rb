@@ -1,14 +1,13 @@
-require 'rspec'
-require_relative '../test/test_helper'
+require_relative 'spec_helper'
 
 require 'win-ffi/core/macro/util'
 
-require 'win-ffi/gdi32/constant'
-require 'win-ffi/gdi32/macro/color'
-require 'win-ffi/gdi32/function/font'
-require 'win-ffi/gdi32/function/device_context'
+require_relative '../lib/win-ffi/gdi32/constant'
+require_relative '../lib/win-ffi/gdi32/macro/color'
+require_relative '../lib/win-ffi/gdi32/function/font'
+require_relative '../lib/win-ffi/gdi32/function/device_context'
 
-$LOAD_PATH.unshift File.expand_path('../../win-ffi-user32/lib', __dir__)
+# $LOAD_PATH.unshift File.expand_path('../../win-ffi-user32/lib', __dir__)
 require 'win-ffi/user32/function/device_context'
 
 $LOAD_PATH.unshift File.expand_path('../../win-ffi-kernel32/lib', __dir__)
@@ -40,9 +39,10 @@ end
 
 RSpec.describe 'Font' do
   hdc = User32.GetDC(nil)
-  file_path = 'E:\users\Pedro\projects\ruby\win-ffi\win-ffi-gdi32\specs\Roboto-Regular.ttf'.to_w
+  file_path = 'spec\\Roboto-Regular.ttf'.to_w
+  # file_path = 'D:\\users\\pedro\\projects\\ruby\\win-ffi-gdi32\\spec\\Roboto-Regular.ttf'.to_w
   file_name = 'Roboto-Regular.ttf'.to_w
-  path = 'E:\users\Pedro\projects\ruby\win-ffi\win-ffi-gdi32\specs\\'.to_w
+  path = 'E:\\users\\Pedro\\projects\\ruby\\win-ffi\\win-ffi-gdi32\\specs\\'.to_w
 
   describe '::AddFontMemResourceEx' do
     it '' do
@@ -67,7 +67,7 @@ RSpec.describe 'Font' do
 
   describe '::CreateFont' do
     it 'creates a logical font with the specified characteristics' do
-      expect(CreateFont(10, 0, 0, 0, :DONTCARE, 0, 0, 0, :ANSI, :TT, :DEFAULT, :CLEARTYPE_NATURAL_QUALITY, :DEFAULT,
+      expect(CreateFont(10, 0, 0, 0, :DONTCARE, 0, 0, 0, :ANSI, :TT, :DEFAULT, :CLEARTYPE_NATURAL, :DEFAULT,
                         'arial'.to_w)).not_to eq FFI::MemoryPointer::NULL
     end
   end
@@ -87,7 +87,7 @@ RSpec.describe 'Font' do
         lf.lfOutPrecision = :TT
         lf.lfClipPrecision = :DEFAULT
         lf.lfQuality = :CLEARTYPE_NATURAL
-        lf.lfPitchAndFamily = :DEFAULT
+        lf.lfPitchAndFamily = FontPitch[:DEFAULT]
         lf.lfFaceName = 'arial'
       end)).not_to eq FFI::MemoryPointer::NULL
     end
@@ -110,7 +110,7 @@ RSpec.describe 'Font' do
             lf.lfOutPrecision = :TT
             lf.lfClipPrecision = :DEFAULT
             lf.lfQuality = :CLEARTYPE_NATURAL
-            lf.lfPitchAndFamily = :DEFAULT
+            lf.lfPitchAndFamily = FontPitch[:DEFAULT]
             lf.lfFaceName = 'arial'
           end
           elf2.elfFullName = 'Arial'
@@ -172,7 +172,7 @@ RSpec.describe 'Font' do
 
   describe '::ExtTextOut' do
     it 'draws font using the currently selected font, background color, and font color' do
-      font = CreateFont(10, 0, 0, 0, :DONTCARE, 0, 0, 0, :ANSI, :TT, :DEFAULT, :CLEARTYPE_NATURAL_QUALITY, :DEFAULT,
+      font = CreateFont(10, 0, 0, 0, :DONTCARE, 0, 0, 0, :ANSI, :TT, :DEFAULT, :CLEARTYPE_NATURAL, :DEFAULT,
                  'arial'.to_w)
 
       SelectObject(hdc, font)
@@ -450,6 +450,7 @@ RSpec.describe 'Font' do
       pts[0].lpstr = 'test'.to_w
       pts[0].uiFlags = :OPAQUE
       pts[0].pdx = nil
+
       pts[1].x = 20
       pts[1].y = 20
       pts[1].n = 5

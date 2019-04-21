@@ -1,11 +1,11 @@
-require 'rspec'
-require_relative '../test/test_helper'
-require 'win-ffi/gdi32/function/brush'
-require 'win-ffi/gdi32/macro/color'
-require 'win-ffi/gdi32/function/path'
-require 'win-ffi/gdi32/function/line_curve'
-require 'win-ffi/gdi32/function/device_context'
-require 'win-ffi/gdi32/function/pen'
+require_relative 'spec_helper'
+
+require_relative '../lib/win-ffi/gdi32/function/brush'
+require_relative '../lib/win-ffi/gdi32/macro/color'
+require_relative '../lib/win-ffi/gdi32/function/path'
+require_relative '../lib/win-ffi/gdi32/function/line_curve'
+require_relative '../lib/win-ffi/gdi32/function/device_context'
+require_relative '../lib/win-ffi/gdi32/function/pen'
 
 $LOAD_PATH.unshift File.expand_path('../../win-ffi-user32/lib', __dir__)
 require 'win-ffi/user32/function/device_context'
