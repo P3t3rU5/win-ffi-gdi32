@@ -2,13 +2,10 @@ require_relative '../emr'
 
 module WinFFI
   module Gdi32
-    def emr; end
-    def emr=(v); end
-    def iMode; end
-    def iMode=(v); end
-
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrselectclippath
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrselectclippath
     class EMRSELECTCLIPPATH < FFIAdditions::Struct
+      attr_accessor :emr, :iMode
+
       layout emr:   EMR,
              iMode: :dword
     end

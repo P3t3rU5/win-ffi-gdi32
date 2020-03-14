@@ -7,20 +7,14 @@ require_relative '../../enum/clipping/type'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winddi/ns-winddi-_clipobj
+    # https://docs.microsoft.com/en-us/windows/win32/api/winddi/ns-winddi-clipobj
     class CLIPOBJ < FFIAdditions::Struct
-      def iUniq; end
-      def iUniq=(v) end
-      def rclBounds; end
-      def rclBounds=(v) end
-      def iDComplexity; end
-      def iDComplexity=(v) end
-      def iFComplexity; end
-      def iFComplexity=(v) end
-      def iMode; end
-      def iMode=(v) end
-      def fjOptions; end
-      def fjOptions=(v) end
+      attr_accessor :iUniq,
+                    :rclBounds,
+                    :iDComplexity,
+                    :iFComplexity,
+                    :iMode,
+                    :fjOptions
 
       layout  iUniq:        :ulong,
               rclBounds:    RECTL,

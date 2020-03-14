@@ -13,34 +13,21 @@ module WinFFI
     typedef :handle, :hdev
     typedef :handle, :dhpdev
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winddi/ns-winddi-_surfobj
+    # https://docs.microsoft.com/en-us/windows/win32/api/winddi/ns-winddi-surfobj
     class SURFOBJ < FFIAdditions::Struct
-      def dhsurf; end
-      def dhsurf=(v) end
-      def hsurf; end
-      def hsurf=(v) end
-      def dhpdev; end
-      def dhpdev=(v) end
-      def hdev; end
-      def hdev=(v) end
-      def sizlBitmap; end
-      def sizlBitmap=(v) end
-      def cjBits; end
-      def cjBits=(v) end
-      def pvBits; end
-      def pvBits=(v) end
-      def pvScan0; end
-      def pvScan0=(v) end
-      def lDelta; end
-      def lDelta=(v) end
-      def iUniq; end
-      def iUniq=(v) end
-      def iBitmapFormat; end
-      def iBitmapFormat=(v) end
-      def iType; end
-      def iType=(v) end
-      def fjBitmap; end
-      def fjBitmap=(v) end
+      attr_accessor :dhsurf,
+                    :hsurf,
+                    :dhpdev,
+                    :hdev,
+                    :sizlBitmap,
+                    :cjBits,
+                    :pvBits,
+                    :pvScan0,
+                    :lDelta,
+                    :iUniq,
+                    :iBitmapFormat,
+                    :iType,
+                    :fjBitmap,
 
       layout dhsurf:        :dhsurf,
              hsurf:         :hsurf,

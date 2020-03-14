@@ -8,14 +8,9 @@ module WinFFI
     #define STAMP_TRUETYPE_VARIATION (0x8000000 + 't' + ('v' << 8))
     #define STAMP_CFF2          (0x8000000 + 'c' + ('v' << 8))
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagdesignvector
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-designvector
     class DESIGNVECTOR < FFIAdditions::Struct
-      def dvReserved; end
-      def dvReserved=(v); end
-      def dvNumAxes; end
-      def dvNumAxes=(v); end
-      def dvValues; end
-      def dvValues=(v); end
+      attr_accessor :dvReserved, :dvNumAxes, :dvValues
 
       layout dvReserved: :dword,
              dvNumAxes:  :dword,

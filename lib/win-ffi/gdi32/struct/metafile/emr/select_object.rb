@@ -2,13 +2,9 @@ require_relative '../emr'
 
 module WinFFI
   module Gdi32
-
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrselectobject
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrselectobject
     class EMRSELECTOBJECT < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def ihObject; end
-      def ihObject=(v) end
+      attr_accessor :emr, :ihObject
 
       layout emr:      EMR,
              ihObject: :dword

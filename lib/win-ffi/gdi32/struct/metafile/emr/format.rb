@@ -1,15 +1,8 @@
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrformat
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrformat
     class EMRFORMAT < FFIAdditions::Struct
-      def dSignature; end
-      def dSignature=(v) end
-      def nVersion; end
-      def nVersion=(v) end
-      def cbData; end
-      def cbData=(v) end
-      def offData; end
-      def offData=(v) end
+      attr_accessor :dSignature, :nVersion, :cbData, :offData
 
       layout dSignature: :dword,
              nVersion:   :dword,

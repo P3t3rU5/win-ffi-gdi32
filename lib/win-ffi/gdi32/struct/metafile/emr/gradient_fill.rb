@@ -5,21 +5,10 @@ require_relative '../../bitmap/tri_vertex'
 
 module WinFFI
   module Gdi32
-    def emr; end
-    def emr=(v); end
-    def rclBounds; end
-    def rclBounds=(v); end
-    def nVer; end
-    def nVer=(v); end
-    def nTri; end
-    def nTri=(v); end
-    def ulMode; end
-    def ulMode=(v); end
-    def Ver; end
-    def Ver=(v); end
-
-        # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrgradientfill
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrgradientfill
     class EMRGRADIENTFILL < FFIAdditions::Struct
+      attr_accessor :emr, :rclBounds, :nVer, :nTri, :ulMode, :Ver
+
       layout emr:       EMR,
              rclBounds: RECTL, # Inclusive-inclusive bounds in device units
              nVer:      :dword,

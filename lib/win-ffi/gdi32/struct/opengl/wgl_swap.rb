@@ -4,10 +4,7 @@ module WinFFI
   module Gdi32
     # wglSwapLayerBuffers flags
     class WGLSWAP < FFIAdditions::Struct
-      def hdc; end
-      def hdc=(v); end
-      def uiFlags; end
-      def uiFlags=(v); end
+      attr_accessor :hdc, :uiFlags
 
       layout hdc:     :hdc,
              uiFlags: WglSwapLayerBuffer

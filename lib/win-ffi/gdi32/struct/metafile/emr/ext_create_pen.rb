@@ -3,22 +3,15 @@ require_relative '../../pen/ext_log'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrextcreatefontindirectw
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrextcreatefontindirectw
     class EMREXTCREATEFONTINDIRECT < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def ihPen; end
-      def ihPen=(v); end
-      def offBmi; end
-      def offBmi=(v); end
-      def cbBmi; end
-      def cbBmi=(v); end
-      def offBits; end
-      def offBits=(v); end
-      def cbBits; end
-      def cbBits=(v); end
-      def elp; end
-      def elp=(v); end
+      attr_accessor :emr,
+                    :ihPen,
+                    :offBmi,
+                    :cbBmi,
+                    :offBits,
+                    :cbBits,
+                    :elp
 
       layout emr:     EMR,
              ihPen:   :dword,

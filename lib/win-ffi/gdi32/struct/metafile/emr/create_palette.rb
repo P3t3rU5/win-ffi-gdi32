@@ -3,15 +3,10 @@ require_relative '../../color/log_palette'
 
 module WinFFI
   module Gdi32
-    def emr; end
-    def emr=(v) end
-    def ihPal; end
-    def ihPal=(v) end
-    def lgpl; end
-    def lgpl=(v) end
-
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrcreatepalette
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrcreatepalette
     class EMRCREATEPALETTE < FFIAdditions::Struct
+      attr_accessor :emr, :ihPal, :lgpl
+
       layout emr:   EMR,
              ihPal: :dword,
              lgpl:  LOGPALETTE

@@ -2,18 +2,14 @@ require_relative 'axis_info'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagaxeslista
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-axeslista
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-axeslistw
     class AXESLIST < FFIAdditions::Struct
-      def axlReserved; end
-      def axlReserved=(v); end
-      def axlNumAxes; end
-      def axlNumAxes=(v); end
-      def axlAxisInfo; end
-      def axlAxisInfo=(v); end
+      attr_accessor :axlReserved, :axlNumAxes, :axlAxisInfo
 
       layout axlReserved: :dword,
              axlNumAxes:  :dword,
-             axlAxisInfo: AXISINFO.ptr
+             axlAxisInfo: [AXISINFO, MM_MAX_NUMAXES]
     end
   end
 end

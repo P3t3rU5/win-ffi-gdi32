@@ -4,23 +4,10 @@ require_relative '../../enum/font/ext_text_out_flag'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagpolytexta
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagpolytextw
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-polytexta
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-polytextw
     class POLYTEXT < FFIAdditions::Struct
-      def x; end
-      def x=(v); end
-      def y; end
-      def y=(v); end
-      def n; end
-      def n=(v); end
-      def lpstr; end
-      def lpstr=(v); end
-      def uiFlags; end
-      def uiFlags=(v); end
-      def rcl; end
-      def rcl=(v); end
-      def pdx; end
-      def pdx=(v); end
+      attr_accessor :x, :y, :n, :lpstr, :uiFlags, :rcl, :pdx
 
       layout x:       :int,
              y:       :int,

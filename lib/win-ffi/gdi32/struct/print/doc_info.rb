@@ -2,18 +2,10 @@ require_relative '../../enum/print/doc_info_type'
 
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd183574(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-docinfoa
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-docinfow
     class DOCINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def lpszDocName; end
-      def lpszDocName=(v) end
-      def lpszOutput; end
-      def lpszOutput=(v) end
-      def lpszDatatype; end
-      def lpszDatatype=(v) end
-      def fwType; end
-      def fwType=(v) end
+      attr_accessor :cbSize, :lpszDocName, :lpszOutput, :lpszDatatype, :fwType
 
       layout cbSize:       :int,
              lpszDocName:  :string,

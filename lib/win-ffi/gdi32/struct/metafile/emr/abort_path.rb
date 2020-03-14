@@ -2,10 +2,9 @@ require_relative '../emr'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagabortpath
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrabortpath
     class EMRABORTPATH < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
+      attr_accessor :emr
 
       layout emr: EMR
     end

@@ -3,22 +3,15 @@ require_relative '../brush/log'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagextlogpen
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-extlogpen
     class EXTLOGPEN < FFIAdditions::Struct
-      def elpPenStyle; end
-      def elpPenStyle=(v); end
-      def elpWidth; end
-      def elpWidth=(v); end
-      def elpBrushStyle; end
-      def elpBrushStyle=(v); end
-      def elpColor; end
-      def elpColor=(v); end
-      def elpHatch; end
-      def elpHatch=(v); end
-      def elpNumEntries; end
-      def elpNumEntries=(v); end
-      def elpStyleEntry; end
-      def elpStyleEntry=(v); end
+      attr_accessor :elpPenStyle,
+                    :elpWidth,
+                    :elpBrushStyle,
+                    :elpColor,
+                    :elpHatch,
+                    :elpNumEntries,
+                    :elpStyleEntry
 
       layout elpPenStyle:   PenStyle,
              elpWidth:      :dword,

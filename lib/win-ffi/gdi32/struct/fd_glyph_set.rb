@@ -2,18 +2,13 @@ require_relative 'wcrun'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winddi/ns-winddi-_fd_glyphset
+    # https://docs.microsoft.com/en-us/windows/win32/api/winddi/ns-winddi-fd_glyphset
     class FD_GLYPHSET < FFIAdditions::Struct
-      def cjThis; end
-      def cjThis=(v) end
-      def flAccel; end
-      def flAccel=(v) end
-      def cGlyphsSupported; end
-      def cGlyphsSupported=(v) end
-      def cRuns; end
-      def cRuns=(v) end
-      def awcrun; end
-      def awcrun=(v) end
+      attr_accessor :cjThis,
+                    :flAccel,
+                    :cGlyphsSupported,
+                    :cRuns,
+                    :awcrun
 
       layout cjThis:           :ulong,
              flAccel:          :flong,

@@ -1,13 +1,8 @@
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winddi/ns-winddi-_wcrun
+    # https://docs.microsoft.com/en-us/windows/win32/api/winddi/ns-winddi-wcrun
     class WCRUN < FFIAdditions::Struct
-      def wcLow; end
-      def wcLow=(v) end
-      def cGlyphs; end
-      def cGlyphs=(v) end
-      def phg; end
-      def phg=(v) end
+      attr_accessor :wcLow, :cGlyphs, :phg
 
       layout wcLow:   :wchar,
              cGlyphs: :ushort,

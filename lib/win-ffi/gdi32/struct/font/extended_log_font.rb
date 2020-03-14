@@ -8,28 +8,19 @@ module WinFFI
   module Gdi32
     # The extended logical font
     # An extension of the ENUMLOGFONT
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagextlogfonta
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-extlogfonta
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-extlogfontw
     class EXTLOGFONT < FFIAdditions::Struct
-      def elfLogFont; end
-      def elfLogFont=(v); end
-      def elfFullName; end
-      def elfFullName=(v); end
-      def elfStyle; end
-      def elfStyle=(v); end
-      def elfVersion; end
-      def elfVersion=(v); end
-      def elfStyleSize; end
-      def elfStyleSize=(v); end
-      def elfMatch; end
-      def elfMatch=(v); end
-      def elfReserved; end
-      def elfReserved=(v); end
-      def elfVendorId; end
-      def elfVendorId=(v); end
-      def elfCulture; end
-      def elfCulture=(v); end
-      def elfPanose; end
-      def elfPanose=(v); end
+      attr_accessor :elfLogFont,
+                    :elfFullName,
+                    :elfStyle,
+                    :elfVersion,
+                    :elfStyleSize,
+                    :elfMatch,
+                    :elfReserved,
+                    :elfVendorId,
+                    :elfCulture,
+                    :elfPanose
 
       layout elfLogFont:   LOGFONT,
              elfFullName:  WideInlineString.new(LF_FULLFACESIZE),

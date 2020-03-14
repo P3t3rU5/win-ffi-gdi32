@@ -1,13 +1,10 @@
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_gradient_triangle
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-gradient_triangle
     class GRADIENT_TRIANGLE < FFIAdditions::Struct
-      def Vertex1; end
-      def Vertex1=(v) end
-      def Vertex2; end
-      def Vertex2=(v) end
-      def Vertex3; end
-      def Vertex3=(v) end
+      attr_accessor :Vertex1,
+                    :Vertex2,
+                    :Vertex3
 
       layout Vertex1: :ulong,
              Vertex2: :ulong,

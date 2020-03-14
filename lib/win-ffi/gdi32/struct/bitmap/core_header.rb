@@ -1,18 +1,13 @@
 module WinFFI
   module Gdi32
     # structures for defining DIBs
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagbitmapcoreheader
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapcoreheader
     class BITMAPCOREHEADER < FFIAdditions::Struct
-      def bcSize; end
-      def bcSize=(v) end
-      def bcWidth; end
-      def bcWidth=(v) end
-      def bcHeight; end
-      def bcHeight=(v) end
-      def bcPlanes; end
-      def bcPlanes=(v) end
-      def bcBitCount; end
-      def bcBitCount=(v) end
+      attr_accessor :bcSize,
+                    :bcWidth,
+                    :bcHeight,
+                    :bcPlanes,
+                    :bcBitCount
 
       layout bcSize:     :dword, # used to get to color table
              bcWidth:    :word,

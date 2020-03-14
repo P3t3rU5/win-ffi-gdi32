@@ -5,16 +5,9 @@ require_relative '../emr'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrpolyline
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrpolyline
     class EMRPOLYLINE < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def rclBounds; end
-      def rclBounds=(v) end
-      def cptl; end
-      def cptl=(v) end
-      def aptl; end
-      def aptl=(v) end
+      attr_accessor :emr, :rclBounds, :cptl, :aptl
 
       layout emr:       EMR,
              rclBounds: RECTL,

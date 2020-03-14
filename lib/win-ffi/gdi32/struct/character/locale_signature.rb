@@ -1,13 +1,8 @@
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-taglocalesignature
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-localesignature
     class LOCALESIGNATURE < FFIAdditions::Struct
-      def lsUsb; end
-      def lsUsb=(v) end
-      def lsCsbDefault; end
-      def lsCsbDefault=(v) end
-      def lsCsbSupported; end
-      def lsCsbSupported=(v) end
+      attr_accessor :lsUsb, :lsCsbDefault, :lsCsbSupported
 
       layout lsUsb:          [:dword, 4],
              lsCsbDefault:   [:dword, 2],

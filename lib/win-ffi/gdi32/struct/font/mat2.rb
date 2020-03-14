@@ -2,16 +2,9 @@ require_relative 'fixed'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_mat2
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-mat2
     class MAT2 < FFIAdditions::Struct
-      def eM11; end
-      def eM11=(v); end
-      def eM12; end
-      def eM12=(v); end
-      def eM21; end
-      def eM21=(v); end
-      def eM22; end
-      def eM22=(v); end
+      attr_accessor :eM11, :eM12, :eM21, :eM22
 
       layout eM11: FIXED,
              eM12: FIXED,

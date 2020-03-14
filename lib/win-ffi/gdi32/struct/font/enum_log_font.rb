@@ -6,15 +6,10 @@ require_relative '../../../../../../win-ffi-core/lib/win-ffi/gdi32/struct/font/l
 module WinFFI
   module Gdi32
     # Structure passed to FONTENUMPROC
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagenumlogfonta
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagenumlogfontw
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-enumlogfonta
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-enumlogfontw
     class ENUMLOGFONT < FFIAdditions::Struct
-      def elfLogFont; end
-      def elfLogFont=(v); end
-      def elfFullName; end
-      def elfFullName=(v); end
-      def elfStyle; end
-      def elfStyle=(v); end
+      attr_accessor :elfLogFont, :elfFullName, :elfStyle
 
       layout elfLogFont:  LOGFONT,
              elfFullName: WideInlineString.new(LF_FULLFACESIZE),

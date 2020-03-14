@@ -3,12 +3,10 @@ require_relative 'new_text_metric_extended'
 
 module WinFFI
   module Gdi32
-    # https://msdn.microsoft.com/en-us/library/dd162695(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-enumtextmetrica
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-enumtextmetricw
     class ENUMTEXTMETRIC < FFIAdditions::Struct
-      def etmNewTextMetricEx; end
-      def etmNewTextMetricEx=(v); end
-      def etmAxesList; end
-      def etmAxesList=(v); end
+      attr_accessor :etmNewTextMetricEx, :etmAxesList
 
       layout etmNewTextMetricEx: NEWTEXTMETRICEX,
              etmAxesList:        AXESLIST

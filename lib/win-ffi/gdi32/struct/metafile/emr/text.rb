@@ -4,20 +4,14 @@ require 'win-ffi/core/struct/rectl'
 module WinFFI
   module Gdi32
     # Base font record type for the enhanced metafile.
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrtext
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrtext
     class EMRTEXT < FFIAdditions::Struct
-      def ptlReference; end
-      def ptlReference=(v); end
-      def nChars; end
-      def nChars=(v); end
-      def offString; end
-      def offString=(v); end
-      def fOptions; end
-      def fOptions=(v); end
-      def rcl; end
-      def rcl=(v); end
-      def offDx; end
-      def offDx=(v); end
+      attr_accessor :ptlReference,
+                    :nChars,
+                    :offString,
+                    :fOptions,
+                    :rcl,
+                    :offDx
 
       layout ptlReference: POINTL,
              nChars:       :dword,

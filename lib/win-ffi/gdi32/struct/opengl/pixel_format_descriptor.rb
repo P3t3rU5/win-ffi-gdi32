@@ -5,58 +5,33 @@ require_relative '../../enum/opengl/pixel_format_descriptor_layer_type'
 module WinFFI
   module Gdi32
     # Pixel format descriptor
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagpixelformatdescriptor
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-pixelformatdescriptor
     class PIXELFORMATDESCRIPTOR < FFIAdditions::Struct
-      def nSize; end
-      def nSize=(v); end
-      def nVersion; end
-      def nVersion=(v); end
-      def iPixelType; end
-      def iPixelType=(v); end
-      def cColorBits; end
-      def cColorBits=(v); end
-      def cRedBits; end
-      def cRedBits=(v); end
-      def cRedShift; end
-      def cRedShift=(v); end
-      def cGreenBits; end
-      def cGreenBits=(v); end
-      def cGreenShift; end
-      def cGreenShift=(v); end
-      def cBlueBits; end
-      def cBlueBits=(v); end
-      def cBlueShift; end
-      def cBlueShift=(v); end
-      def cAlphaBits; end
-      def cAlphaBits=(v); end
-      def cAlphaShift; end
-      def cAlphaShift=(v); end
-      def cAccumBits; end
-      def cAccumBits=(v); end
-      def cAccumRedBits; end
-      def cAccumRedBits=(v); end
-      def cAccumGreenBits; end
-      def cAccumGreenBits=(v); end
-      def cAccumBlueBits; end
-      def cAccumBlueBits=(v); end
-      def cAccumAlphaBits; end
-      def cAccumAlphaBits=(v); end
-      def cDepthBits; end
-      def cDepthBits=(v); end
-      def cStencilBits; end
-      def cStencilBits=(v); end
-      def cAuxBuffers; end
-      def cAuxBuffers=(v); end
-      def iLayerType; end
-      def iLayerType=(v); end
-      def bReserved; end
-      def bReserved=(v); end
-      def dwLayerMask; end
-      def dwLayerMask=(v); end
-      def dwVisibleMask; end
-      def dwVisibleMask=(v); end
-      def dwDamageMask; end
-      def dwDamageMask=(v); end
+      attr_accessor :nSize,
+                    :nVersion,
+                    :iPixelType,
+                    :cColorBits,
+                    :cRedBits,
+                    :cRedShift,
+                    :cGreenBits,
+                    :cGreenShift,
+                    :cBlueBits,
+                    :cBlueShift,
+                    :cAlphaBits,
+                    :cAlphaShift,
+                    :cAccumBits,
+                    :cAccumRedBits,
+                    :cAccumGreenBits,
+                    :cAccumBlueBits,
+                    :cAccumAlphaBits,
+                    :cDepthBits,
+                    :cStencilBits,
+                    :cAuxBuffers,
+                    :iLayerType,
+                    :bReserved,
+                    :dwLayerMask,
+                    :dwVisibleMask,
+                    :dwDamageMask
 
       layout nSize:           :ushort,
              nVersion:        :ushort,

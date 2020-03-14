@@ -3,13 +3,10 @@ require_relative '../character/font_signature'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagnewtextmetricexa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagnewtextmetricexw
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-newtextmetricexa
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-newtextmetricexw
     class NEWTEXTMETRICEX < FFIAdditions::Struct
-      def ntmTm; end
-      def ntmTm=(v); end
-      def ntmFontSig; end
-      def ntmFontSig=(v); end
+      attr_accessor :ntmTm, :ntmFontSig
 
       layout ntmTm:      NEWTEXTMETRIC,
              ntmFontSig: FONTSIGNATURE

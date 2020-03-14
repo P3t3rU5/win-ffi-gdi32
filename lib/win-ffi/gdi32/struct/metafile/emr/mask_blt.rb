@@ -5,54 +5,31 @@ require_relative '../../transform/xform'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrmaskblt
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrmaskblt
     class EMRMASKBLT < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def rclBounds; end
-      def rclBounds=(v) end
-      def xDest; end
-      def xDest=(v) end
-      def yDest; end
-      def yDest=(v) end
-      def cxDest; end
-      def cxDest=(v) end
-      def cyDest; end
-      def cyDest=(v) end
-      def dwRop; end
-      def dwRop=(v) end
-      def xSrc; end
-      def xSrc=(v) end
-      def ySrc; end
-      def ySrc=(v) end
-      def xformSrc; end
-      def xformSrc=(v) end
-      def crBkColorSrc; end
-      def crBkColorSrc=(v) end
-      def iUsageSrc; end
-      def iUsageSrc=(v) end
-      def offBmiSrc; end
-      def offBmiSrc=(v) end
-      def cbBmiSrc; end
-      def cbBmiSrc=(v) end
-      def offBitsSrc; end
-      def offBitsSrc=(v) end
-      def cbBitsSrc; end
-      def cbBitsSrc=(v) end
-      def xMask; end
-      def xMask=(v) end
-      def yMask; end
-      def yMask=(v) end
-      def iUsageMask; end
-      def iUsageMask=(v) end
-      def offBmiMask; end
-      def offBmiMask=(v) end
-      def cbBmiMask; end
-      def cbBmiMask=(v) end
-      def offBitsMask; end
-      def offBitsMask=(v) end
-      def cbBitsMask; end
-      def cbBitsMask=(v) end
+      attr_accessor :emr,
+                    :rclBounds,
+                    :xDest,
+                    :yDest,
+                    :cxDest,
+                    :cyDest,
+                    :dwRop,
+                    :xSrc,
+                    :ySrc,
+                    :xformSrc,
+                    :crBkColorSrc,
+                    :iUsageSrc,
+                    :offBmiSrc,
+                    :cbBmiSrc,
+                    :offBitsSrc,
+                    :cbBitsSrc,
+                    :xMask,
+                    :yMask,
+                    :iUsageMask,
+                    :offBmiMask,
+                    :cbBmiMask,
+                    :offBitsMask,
+                    :cbBitsMask,
 
       layout emr:          EMR,
              rclBounds:    RECTL,

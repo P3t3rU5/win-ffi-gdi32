@@ -2,16 +2,9 @@ require_relative '../emr'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrextselectcliprgn
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrextselectcliprgn
     class EMREXTSELECTCLIPRGN < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def cbRgnData; end
-      def cbRgnData=(v) end
-      def iMode; end
-      def iMode=(v) end
-      def RgnData; end
-      def RgnData=(v) end
+      attr_accessor :emr, :cbRgnData, :iMode, :RgnData
 
       layout emr:       EMR,
              cbRgnData: :dword,

@@ -5,14 +5,9 @@ require_relative '../../enum/dib_color_identifier'
 module WinFFI
   module Gdi32
     # Logical Brush (or Pattern)
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-createbrushindirect
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logbrush
     class LOGBRUSH < FFIAdditions::Struct
-     def lbStyle; end
-     def lbStyle=(v); end
-     def lbColor; end
-     def lbColor=(v); end
-     def lbHatch; end
-     def lbHatch=(v); end
+      attr_accessor :lbStyle, :lbColor, :lbHatch
 
       layout lbStyle: BrushStyle,
              lbColor: DibColorIdentifier,

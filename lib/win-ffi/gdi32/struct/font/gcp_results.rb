@@ -2,27 +2,18 @@ require_relative '../../enum/font/get_character_placement_class'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-taggcp_resultsa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-taggcp_resultsw
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-gcp_resultsa
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-gcp_resultsw
     class GCP_RESULTS < FFIAdditions::Struct
-      def lStructSize; end
-      def lStructSize=(v); end
-      def lpOutString; end
-      def lpOutString=(v); end
-      def lpOrder; end
-      def lpOrder=(v); end
-      def lpDx; end
-      def lpDx=(v); end
-      def lpCaretPos; end
-      def lpCaretPos=(v); end
-      def lpClass; end
-      def lpClass=(v); end
-      def lpGlyphs; end
-      def lpGlyphs=(v); end
-      def nGlyphs; end
-      def nGlyphs=(v); end
-      def nMaxFit; end
-      def nMaxFit=(v); end
+      attr_accessor :lStructSize,
+                    :lpOutString,
+                    :lpOrder,
+                    :lpDx,
+                    :lpCaretPos,
+                    :lpClass,
+                    :lpGlyphs,
+                    :nGlyphs,
+                    :nMaxFit
 
       layout lStructSize: :dword,
              lpOutString: :string,

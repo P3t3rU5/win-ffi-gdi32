@@ -2,10 +2,9 @@ require_relative 'blend_function'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winddi/ns-winddi-_blendobj
+    # https://docs.microsoft.com/en-us/windows/win32/api/winddi/ns-winddi-blendobj
     class BLENDOBJ < FFIAdditions::Struct
-      def BlendFunction; end
-      def BlendFunction=(v); end
+      attr_accessor :BlendFunction
 
       layout BlendFunction: BLENDFUNCTION
     end

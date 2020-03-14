@@ -2,18 +2,13 @@ require_relative '../emr'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagcolorcorrectpalette
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrcolorcorrectpalette
     class EMRCOLORCORRECTPALETTE < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def ihPalette; end
-      def ihPalette=(v) end
-      def nFirstEntry; end
-      def nFirstEntry=(v) end
-      def nPalEntries; end
-      def nPalEntries=(v) end
-      def nReserved; end
-      def nReserved=(v) end
+      attr_accessor :emr,
+                    :ihPalette,
+                    :nFirstEntry,
+                    :nPalEntries,
+                    :nReserved
 
       layout emr:         EMR,
              ihPalette:   :dword, # Palette handle index

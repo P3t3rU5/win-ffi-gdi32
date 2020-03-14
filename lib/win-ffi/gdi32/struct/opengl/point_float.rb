@@ -1,11 +1,8 @@
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_pointfloat
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-pointfloat
     class POINTFLOAT < FFIAdditions::Struct
-      def x; end
-      def x=(v); end
-      def y; end
-      def y=(v); end
+      attr_accessor :x, :y
 
       layout x: :float,
              y: :float

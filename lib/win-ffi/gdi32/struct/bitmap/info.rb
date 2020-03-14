@@ -3,12 +3,9 @@ require_relative 'rgb_quad'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagbitmapinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapinfo
     class BITMAPINFO < FFIAdditions::Struct
-      def bmiHeader; end
-      def bmiHeader=(v) end
-      def bmiColors; end
-      def bmiColors=(v) end
+      attr_accessor :bmiHeader, :bmiColor
 
       layout bmiHeader: BITMAPINFOHEADER,
              bmiColors: RGBQUAD

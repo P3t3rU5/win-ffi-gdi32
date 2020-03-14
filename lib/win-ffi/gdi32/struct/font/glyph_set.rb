@@ -4,18 +4,13 @@ require_relative 'wc_range'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagglyphset
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-glyphset
     class GLYPHSET < FFIAdditions::Struct
-      def cbThis; end
-      def cbThis=(v); end
-      def flAccel; end
-      def flAccel=(v); end
-      def cGlyphsSupported; end
-      def cGlyphsSupported=(v); end
-      def cRanges; end
-      def cRanges=(v); end
-      def ranges; end
-      def ranges=(v); end
+      attr_accessor :cbThis,
+                    :flAccel,
+                    :cGlyphsSupported,
+                    :cRanges,
+                    :ranges
 
       layout cbThis:           :dword,
              flAccel:          GlyphSetFlag,

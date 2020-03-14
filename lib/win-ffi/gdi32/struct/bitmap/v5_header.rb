@@ -4,54 +4,30 @@ module WinFFI
   module Gdi32
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-bitmapv5header
     class BITMAPV5HEADER < FFIAdditions::Struct
-      def bV5Size; end
-      def bV5Size=(v); end
-      def bV5Width; end
-      def bV5Width=(v); end
-      def bV5Height; end
-      def bV5Height=(v); end
-      def bV5Planes; end
-      def bV5Planes=(v); end
-      def bV5BitCount; end
-      def bV5BitCount=(v); end
-      def bV5Compression; end
-      def bV5Compression=(v); end
-      def bV5SizeImage; end
-      def bV5SizeImage=(v); end
-      def bV5XPelsPerMeter; end
-      def bV5XPelsPerMeter=(v); end
-      def bV5YPelsPerMeter; end
-      def bV5YPelsPerMeter=(v); end
-      def bV5ClrUsed; end
-      def bV5ClrUsed=(v); end
-      def bV5ClrImportant; end
-      def bV5ClrImportant=(v); end
-      def bV5RedMask; end
-      def bV5RedMask=(v); end
-      def bV5GreenMask; end
-      def bV5GreenMask=(v); end
-      def bV5BlueMask; end
-      def bV5BlueMask=(v); end
-      def bV5AlphaMask; end
-      def bV5AlphaMask=(v); end
-      def bV5CSType; end
-      def bV5CSType=(v); end
-      def bV5Endpoints; end
-      def bV5Endpoints=(v); end
-      def bV5GammaRed; end
-      def bV5GammaRed=(v); end
-      def bV5GammaGreen; end
-      def bV5GammaGreen=(v); end
-      def bV5GammaBlue; end
-      def bV5GammaBlue=(v); end
-      def bV5Intent; end
-      def bV5Intent=(v); end
-      def bV5ProfileData; end
-      def bV5ProfileData=(v); end
-      def bV5ProfileSize; end
-      def bV5ProfileSize=(v); end
-      def bV5Reserved; end
-      def bV5Reserved=(v); end
+      attr_accessor :bV5Size,
+                    :bV5Width,
+                    :bV5Height,
+                    :bV5Planes,
+                    :bV5BitCount,
+                    :bV5Compression,
+                    :bV5SizeImage,
+                    :bV5XPelsPerMeter,
+                    :bV5YPelsPerMeter,
+                    :bV5ClrUsed,
+                    :bV5ClrImportant,
+                    :bV5RedMask,
+                    :bV5GreenMask,
+                    :bV5BlueMask,
+                    :bV5AlphaMask,
+                    :bV5CSType,
+                    :bV5Endpoints,
+                    :bV5GammaRed,
+                    :bV5GammaGreen,
+                    :bV5GammaBlue,
+                    :bV5Intent,
+                    :bV5ProfileData,
+                    :bV5ProfileSize,
+                    :bV5Reserved
 
       layout bV5Size:          :dword,
              bV5Width:         :long,

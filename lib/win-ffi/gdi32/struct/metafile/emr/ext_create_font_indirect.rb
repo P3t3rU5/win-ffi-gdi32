@@ -3,14 +3,9 @@ require_relative '../../font/extended_log_font'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrextcreatefontindirectw
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrextcreatefontindirectw
     class EMREXTCREATEFONTINDIRECT < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def ihFont; end
-      def ihFont=(v); end
-      def elfw; end
-      def elfw=(v); end
+      attr_accessor :emr, :ihFont, :elfw
 
       layout emr:    EMR,
              ihFont: :dword,

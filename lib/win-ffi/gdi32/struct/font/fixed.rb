@@ -1,11 +1,8 @@
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_fixed
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-fixed
     class FIXED < FFIAdditions::Struct
-      def fract; end
-      def fract=(v); end
-      def value; end
-      def value=(v); end
+      attr_accessor :fract, :value
 
       layout fract: :word,
              value: :short

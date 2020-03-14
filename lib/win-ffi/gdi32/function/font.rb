@@ -408,7 +408,7 @@ module WinFFI
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/nf-wingdi-gettextmetrics
     # @param [FFI::Pointer] hdc
-    # @param [FFI::Pointer] lptm
+    # @param [WinFFI::Gdi32::TEXTMETRIC] lptm
     # @return [true, false]
     def self.GetTextMetrics(hdc, lptm) end
     encoded_function 'GetTextMetrics', [:hdc, TEXTMETRIC.ptr(:out)], :bool
@@ -483,6 +483,7 @@ module WinFFI
     # @param [Integer] nYStart
     # @param [String] lpString
     # @param [Integer] cchString
+    # @return [true, false]
     def self.TextOut(hdc, nXStart, nYStart, lpString, cchString) end
     encoded_function 'TextOut', [:hdc, :int, :int, :string, :int], :bool
   end

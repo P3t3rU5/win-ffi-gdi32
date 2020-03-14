@@ -8,29 +8,19 @@ require_relative 'cie_xyz_triple'
 module WinFFI
   module Gdi32
     typedef :long, :lcscstype
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-taglogcolorspacea
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-taglogcolorspacew
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logcolorspacea
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logcolorspacew
     class LOGCOLORSPACE < FFIAdditions::Struct
-      def lcsSignature; end
-      def lcsSignature=(v) end
-      def lcsVersion; end
-      def lcsVersion=(v); end
-      def lcsSize; end
-      def lcsSize=(v); end
-      def lcsCSType; end
-      def lcsCSType=(v); end
-      def lcsIntent; end
-      def lcsIntent=(v); end
-      def lcsEndpoints; end
-      def lcsEndpoints=(v); end
-      def lcsGammaRed; end
-      def lcsGammaRed=(v); end
-      def lcsGammaGreen; end
-      def lcsGammaGreen=(v); end
-      def lcsGammaBlue; end
-      def lcsGammaBlue=(v); end
-      def lcsFilename; end
-      def lcsFilename=(v); end
+      attr_accessor :lcsSignature,
+                    :lcsVersion,
+                    :lcsSize,
+                    :lcsCSType,
+                    :lcsIntent,
+                    :lcsEndpoints,
+                    :lcsGammaRed,
+                    :lcsGammaGreen,
+                    :lcsGammaBlue,
+                    :lcsFilename
 
       layout lcsSignature:  :dword,
              lcsVersion:    :dword,

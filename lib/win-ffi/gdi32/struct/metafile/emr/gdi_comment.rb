@@ -2,14 +2,9 @@ require_relative '../emr'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrgdicomment
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrgdicomment
     class EMRGDICOMMENT < FFIAdditions::Struct
-      def emr; end
-      def emr=(v); end
-      def cbData; end
-      def cbData=(v); end
-      def Data; end
-      def Data=(v); end
+      attr_accessor :emr, :cbData, :Data
 
       layout emr:    EMR,
              cbData: :dword, # Size of data in bytes

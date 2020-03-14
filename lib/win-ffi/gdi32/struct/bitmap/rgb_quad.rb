@@ -1,15 +1,11 @@
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagrgbquad
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-rgbquad
     class RGBQUAD < FFIAdditions::Struct
-      def rgbBlue; end
-      def rgbBlue=(v); end
-      def rgbGreen; end
-      def rgbGreen=(v); end
-      def rgbRed; end
-      def rgbRed=(v); end
-      def rgbReserved; end
-      def rgbReserved=(v); end
+      attr_accessor :rgbBlue,
+                    :rgbGreen,
+                    :rgbRed,
+                    :rgbReserved
 
       layout rgbBlue:     :byte,
              rgbGreen:    :byte,

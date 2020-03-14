@@ -3,12 +3,10 @@ require_relative '../../bitmap/color_adjustment'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrsetcoloradjustment
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrsetcoloradjustment
     class EMRSETCOLORADJUSTMENT < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def ColorAdjustment; end
-      def ColorAdjustment=(v) end
+      attr_accessor :emr, :ColorAdjustment
+
       layout emr:             EMR,
              ColorAdjustment: COLORADJUSTMENT
     end

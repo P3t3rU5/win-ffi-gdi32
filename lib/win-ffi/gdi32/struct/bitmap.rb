@@ -1,22 +1,15 @@
 module WinFFI
   module Gdi32
     # Bitmap Header Definition
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagbitmap
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmap
     class BITMAP < FFIAdditions::Struct
-      def bmType; end
-      def bmType=(v) end
-      def bmWidth; end
-      def bmWidth=(v) end
-      def bmHeight; end
-      def bmHeight=(v) end
-      def bmWidthBytes; end
-      def bmWidthBytes=(v) end
-      def bmPlanes; end
-      def bmPlanes=(v) end
-      def bmBitsPixel; end
-      def bmBitsPixel=(v) end
-      def bmBits; end
-      def bmBits=(v) end
+      attr_accessor :bmType,
+                    :bmWidth,
+                    :bmHeight,
+                    :bmWidthBytes,
+                    :bmPlanes,
+                    :bmBitsPixel,
+                    :bmBits
 
       layout bmType:       :long,
              bmWidth:      :long,

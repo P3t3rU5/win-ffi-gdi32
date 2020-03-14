@@ -4,16 +4,9 @@ require_relative '../emr'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrglsboundedrecord
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrglsboundedrecord
     class EMRGLSBOUNDEDRECORD < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def rclBounds; end
-      def rclBounds=(v) end
-      def cbData; end
-      def cbData=(v) end
-      def Data; end
-      def Data=(v) end
+      attr_accessor :emr, :rclBounds, :cbData, :Data
 
       layout emr:    EMR,
              rclBox: RECTL,

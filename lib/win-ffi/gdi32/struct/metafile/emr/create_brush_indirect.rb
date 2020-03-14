@@ -3,14 +3,9 @@ require_relative '../../brush/log'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrcreatebrushindirect
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrcreatebrushindirect
     class EMRCREATEBRUSHINDIRECT < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def ihBrush; end
-      def ihBrush=(v) end
-      def lb; end
-      def lb=(v) end
+      attr_accessor :emr, :ihBrush, :lb
 
       layout emr:     EMR,
              ihBrush: :dword,

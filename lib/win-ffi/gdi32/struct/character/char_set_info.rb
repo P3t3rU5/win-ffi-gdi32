@@ -2,14 +2,9 @@ require_relative 'font_signature'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagcharsetinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-charsetinfo
     class CHARSETINFO < FFIAdditions::Struct
-      def ciCharset; end
-      def ciCharset=(v) end
-      def ciACP; end
-      def ciACP=(v) end
-      def fs; end
-      def fs=(v) end
+      attr_accessor :ciCharset, :ciACP, :fs
 
       layout ciCharset: :uint,
              ciACP:     :uint,

@@ -4,12 +4,9 @@ require_relative '../emr'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrexcludecliprect
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrexcludecliprect
     class EMREXCLUDECLIPRECT < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def rclClip; end
-      def rclClip=(v) end
+      attr_accessor :emr, :rclClip
 
       layout emr:     EMR,
              rclClip: RECTL

@@ -9,31 +9,20 @@ require_relative '../../enum/font/pan_letter_form'
 require_relative '../../enum/font/pan_midline'
 require_relative '../../enum/font/pan_x_height'
 
-
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagpanose
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-panose
     class PANOSE < FFIAdditions::Struct
-      def FamilyType; end
-      def FamilyType=(v) end
-      def SerifStyle; end
-      def SerifStyle=(v) end
-      def Weight; end
-      def Weight=(v) end
-      def Proportion; end
-      def Proportion=(v) end
-      def Contrast; end
-      def Contrast=(v) end
-      def StrokeVariation; end
-      def StrokeVariation=(v) end
-      def ArmStyle; end
-      def ArmStyle=(v) end
-      def Letterform; end
-      def Letterform=(v) end
-      def Midline; end
-      def Midline=(v) end
-      def XHeight; end
-      def XHeight=(v) end
+      attr_accessor :FamilyType,
+                    :SerifStyle,
+                    :Weight,
+                    :Proportion,
+                    :Contrast,
+                    :StrokeVariation,
+                    :ArmStyle,
+                    :Letterform,
+                    :Midline,
+                    :XHeight,
 
       layout FamilyType:      PanFamily,
              SerifStyle:      PanSerifStyle,

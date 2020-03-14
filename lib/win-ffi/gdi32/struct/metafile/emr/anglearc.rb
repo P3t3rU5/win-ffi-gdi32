@@ -4,18 +4,13 @@ require_relative '../emr'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemranglearc
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emranglearc
     class EMRANGLEARC < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def ptlCenter; end
-      def ptlCenter=(v); end
-      def nRadius; end
-      def nRadius=(v); end
-      def eStartAngle; end
-      def eStartAngle=(v); end
-      def eSweepAngle; end
-      def eSweepAngle=(v); end
+      attr_accessor :emr,
+                    :ptlCenter,
+                    :nRadius,
+                    :eStartAngle,
+                    :eSweepAngle
 
       layout emr:         EMR,
              ptlCenter:   POINTL,

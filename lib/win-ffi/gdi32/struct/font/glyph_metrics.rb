@@ -2,18 +2,13 @@ require 'win-ffi/core/struct/point'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_glyphmetrics
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-glyphmetrics
     class GLYPHMETRICS < FFIAdditions::Struct
-      def gmBlackBoxX; end
-      def gmBlackBoxX=(v); end
-      def gmBlackBoxY; end
-      def gmBlackBoxY=(v); end
-      def gmptGlyphOrigin; end
-      def gmptGlyphOrigin=(v); end
-      def gmCellIncX; end
-      def gmCellIncX=(v); end
-      def gmCellIncY; end
-      def gmCellIncY=(v); end
+      attr_accessor :gmBlackBoxX,
+                    :gmBlackBoxY,
+                    :gmptGlyphOrigin,
+                    :gmCellIncX,
+                    :gmCellIncY
 
       layout gmBlackBoxX:     :uint,
              gmBlackBoxY:     :uint,

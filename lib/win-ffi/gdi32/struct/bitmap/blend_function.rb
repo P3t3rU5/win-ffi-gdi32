@@ -3,16 +3,12 @@ require_relative '../../enum/bitmap/alpha_channel_format'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_blendfunction
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-blendfunction
     class BLENDFUNCTION < FFIAdditions::Struct
-      def BlendOp; end
-      def BlendOp=(v); end
-      def BlendFlags; end
-      def BlendFlags=(v); end
-      def SourceConstantAlpha; end
-      def SourceConstantAlpha=(v); end
-      def AlphaFormat; end
-      def AlphaFormat=(v); end
+      attr_accessor :BlendOp,
+                    :BlendFlags,
+                    :SourceConstantAlpha,
+                    :AlphaFormat
 
       layout BlendOp:             AlphaChannelBlendFunction,
              BlendFlags:          :byte,

@@ -3,8 +3,25 @@ require 'win-ffi/core/struct/rectl'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagenhmetarecord
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-enhmetaheader
     class ENHMETAHEADER < FFIAdditions::Struct
+      attr_accessor :iType,
+                    :nSize,
+                    :rclBounds,
+                    :rclFrame,
+                    :dSignature,
+                    :nVersion,
+                    :nBytes,
+                    :nRecords,
+                    :nHandles,
+                    :sReserved,
+                    :nDescription,
+                    :offDescription,
+                    :nPalEntries,
+                    :szlDevice,
+                    :szlMillimeters,
+                    :szlMicrometers
+
       layout iType:          :dword,
              nSize:          :dword,
              rclBounds:      RECTL,

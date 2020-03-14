@@ -2,12 +2,9 @@ require 'win-ffi/core/struct/rectl'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winddi/ns-winddi-_enumrects
+    # https://docs.microsoft.com/en-us/windows/win32/api/winddi/ns-winddi-enumrects
     class ENUMRECTS < FFIAdditions::Struct
-      def c; end
-      def c=(v) end
-      def arcl; end
-      def arcl=(v) end
+      attr_accessor :c, :arcl
 
       layout c:    :ulong,
              arcl: [RECTL, 1]

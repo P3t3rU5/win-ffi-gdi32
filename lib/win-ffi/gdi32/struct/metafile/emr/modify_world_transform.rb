@@ -3,14 +3,9 @@ require_relative '../../transform/xform'
 
 module WinFFI
   module Gdi32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-tagemrmodifyworldtransform
+    # https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-emrmodifyworldtransform
     class EMRMODIFYWORLDTRANSFORM < FFIAdditions::Struct
-      def emr; end
-      def emr=(v) end
-      def xform; end
-      def xform=(v) end
-      def iMode; end
-      def iMode=(v) end
+      attr_accessor :emr, :xform, :iMode
 
       layout emr:   EMR,
              xform: XFORM,
