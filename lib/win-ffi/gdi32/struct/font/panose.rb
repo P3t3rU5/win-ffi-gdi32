@@ -22,7 +22,7 @@ module WinFFI
                     :ArmStyle,
                     :Letterform,
                     :Midline,
-                    :XHeight,
+                    :XHeight
 
       layout FamilyType:      PanFamily,
              SerifStyle:      PanSerifStyle,
